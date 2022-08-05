@@ -11,6 +11,7 @@
     padding: 1em;
     transition: 500ms;
     position: fixed;
+    cursor: pointer;
 }
 
 .title:hover {
@@ -93,6 +94,7 @@
     width: 60vw;
     transform:scaleX(110%);
     transition: 80ms;
+    cursor: pointer;
     background-color: #3d435061;
         border: solid rgba(0, 0, 0, 0.213) .5px;
         border-radius: .7rem;
@@ -104,15 +106,16 @@
 }
 
 .scroll-prompt {
-    font-size: 7vw;
+    font-size: 4vw;
     position: absolute;
     color: rgba(255, 255, 255, 0.263);
     bottom: 1%;
     margin: auto;
     opacity: 60%;
-    transform: translate(-3.5vw);
+    transform: translate(-2vw);
     transition: 300ms;
-    display: none
+    /* display: none; */
+    cursor: pointer;
 }
 
 .scroll-prompt:hover {
@@ -135,6 +138,10 @@
     font-weight: 110%;
 }
 
+.tiktok:hover > span {
+    transition: 300ms;
+    color:#00f2ea;
+}
 .instagram:hover > span {
     transition: 300ms;
     color:#7385e2;
