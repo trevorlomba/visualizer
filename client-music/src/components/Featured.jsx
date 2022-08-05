@@ -1,21 +1,24 @@
 import React, { useEffect } from "react";
 import './Featured.css'
 
-import featuredImage from '../assets/background.gif'
 import logoImage from '../assets/logo.png'
 
 import FeaturedLinks from './FeaturedLinks'
 
 import {BsChevronDoubleDown} from 'react-icons/bs'
 
+import { Link } from 'react-router-dom'
 
-const Featured = ({artistName}) => {
+
+const Featured = ({artistName, featuredImage, primaryLink}) => {
     return (
-			<div>
+		<div>
 				<FeaturedLinks />
-				<BsChevronDoubleDown className='scroll-prompt' />
 				<img className='title' src={logoImage} />
 				<img className='featured' src={featuredImage} alt=''></img>
+				<Link to={primaryLink}>
+					<BsChevronDoubleDown className='scroll-prompt' />
+				</Link>
 			</div>
 		)}
 

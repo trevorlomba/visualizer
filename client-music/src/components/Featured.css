@@ -22,7 +22,7 @@
     object-fit: cover;
     background-color: #282c34;
     height: 100vh;
-    /* min-height: 80vh; */
+    /* min-height: 100vh; */
     margin: auto;
     min-width: 100vw;
     max-width: 100vw;
@@ -32,6 +32,7 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
+    overflow: hidden;
     /* padding: 1em; */
     /* position: absolute; */
 }
@@ -90,7 +91,7 @@
 .featured-links > * > * > * {
     padding: 1rem 2rem;
     margin: 1.5rem;
-    width: 60vw;
+    width: 40vw;
     transform:scaleX(110%);
     transition: 80ms;
     background-color: #3d435061;
@@ -112,7 +113,7 @@
     opacity: 60%;
     transform: translate(-3.5vw);
     transition: 300ms;
-    display: none
+    /* display: none */
 }
 
 .scroll-prompt:hover {
