@@ -6,11 +6,9 @@ import { useEffect, useState } from 'react';
 // import { Howl, Howler } from 'howler'
 import ReactHowler from 'react-howler'
 
-import { AiFillPauseCircle, AiFillPlayCircle } from 'react-icons/ai'
 
 function App() {
   const [artistName, setArtistName] = useState('yes')
-  const audio = './assets/sound.wav'
   const [playing, setPlaying] = useState(false)
 //   let sound = new Howl({
 // 	  src: audio,
@@ -30,11 +28,6 @@ function App() {
 
   return (
 		<div className='App'>
-			<div className='playButton' onClick={() => setPlaying(!playing)}>
-				<div className={playing ? 'pause' : 'play'}>
-					{!playing ? <AiFillPlayCircle /> : <AiFillPauseCircle />}
-				</div>
-			</div>
 			<ReactHowler
 				src='https://sndup.net/ds68/d'
 				playing={playing}
@@ -47,6 +40,8 @@ function App() {
 				artistName={artistName}
 				setArtistName={setArtistName}
 				className='title'
+				playing={playing}
+				setPlaying={setPlaying}
 			/>
 		</div>
 	)

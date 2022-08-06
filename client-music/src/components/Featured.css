@@ -9,14 +9,14 @@
     font-size: calc(10px + 2vmin);
     color: white;
     padding: 1em;
-    transition: 500ms;
+    transition: 200ms;
     position: fixed;
     cursor: pointer;
 }
 
 .title:hover {
     transform: scale(.9);
-    transition: 80ms;
+    transition: 500ms;
 }
 
 .featured {
@@ -79,6 +79,18 @@
     border-spacing: 0 15px;
     border-radius: 20px;
     pointer-events: all;
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
 
@@ -160,6 +172,38 @@
     transition: 300ms;
     color:#a6a9af
 }
+
+.playButton {
+    cursor: pointer;
+    display: absolute;
+    position: fixed;
+    right: 10px;
+    padding: 1em;
+}
+
+.playButton>* {
+    color: rgb(255, 255, 255);
+    font-size: 4rem;
+    transition: 500ms;
+}
+
+.playButton>*:hover {
+    transform: scale(95%);
+    transition: 500ms;
+}
+
+.playButton>*:active {
+    transform: scale(105%);
+    transition: 200ms;
+
+    /* color: black; */
+}
+
+.pause {
+    color: #ffffff1e;
+}
+
+
 
 @media only screen and (min-width: 600px) {
     .title {
