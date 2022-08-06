@@ -119,6 +119,19 @@
     transition: 80ms;
 }
 
+.scroll-prompt-top {
+    font-size: 4vw;
+    position: absolute;
+    color: rgba(255, 255, 255, 0.263);
+    top: 1%;
+    margin: auto;
+    opacity: 60%;
+    transform: translate(-2vw);
+    transition: 300ms;
+    /* display: none; */
+    cursor: pointer;
+}
+
 .scroll-prompt {
     font-size: 4vw;
     position: absolute;
