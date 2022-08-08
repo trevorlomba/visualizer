@@ -12,6 +12,7 @@ function App() {
   const [artistName, setArtistName] = useState('yes')
   const [playing, setPlaying] = useState(false)
   const [song, setSong] = useState(0)
+  const [vocalVolume, setVocalVolume] = useState(1.0)
 //   let sound = new Howl({
 // 	  src: audio,
 // 	  autoplay: true
@@ -29,9 +30,18 @@ function App() {
   
 
   return (
-		<div className='App'>
+	  <div className='App'>
 			<ReactHowler
-				src= {songs[song].data.songLink}
+				src={songs[song].data.songLink}
+				playing={playing}
+				html5={true}
+				preload={true}
+				format={'m4a'}
+				loop={true}
+				volume={vocalVolume}
+			/>
+			<ReactHowler
+				src={songs[song + 1].data.songLink}
 				playing={playing}
 				html5={true}
 				preload={true}
@@ -40,13 +50,32 @@ function App() {
 			/>
 			<Featured
 				artistName={artistName}
-				song = {songs[song]}
-				setSong = {setSong}
+				song={songs[song]}
+				setSong={setSong}
 				setArtistName={setArtistName}
 				className='title'
 				playing={playing}
 				setPlaying={setPlaying}
+				vocalVolume={vocalVolume}
+				setVocalVolume={setVocalVolume}
 			/>
+			{/* <div className='volume'>
+				<label>
+					Volume:
+					<span className='slider-container'>
+						<input
+							type='range'
+							min='0'
+							max='1'
+							step='.05'
+							value={vocalVolume}
+							onChange={(e) =>
+								setVocalVolume(e.target.value)
+							}
+						/>
+					</span>
+				</label>
+			</div> */}
 		</div>
 	)
 }

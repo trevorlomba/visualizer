@@ -216,7 +216,16 @@
     color: #ffffff1e;
 }
 
+.volume {
+    margin: auto;
 
+}
+
+.slider-container {
+    position: absolute;
+    top: 10%;
+    left: 40%;
+}
 
 @media only screen and (min-width: 600px) {
     .title {

@@ -17,7 +17,7 @@ const songs = [
 		data: {
 			background: backgroundImage,
 			logo: logoImage,
-			songLink: 'https://sndup.net/ds68/d',
+			songLink: 'https://sndup.net/xzzk/d',
 			featuredLinks: [
 				{
 					name: 'TikTok',
@@ -57,7 +57,7 @@ const songs = [
 		data: {
 			background: backgroundImage2,
 			logo: logoImage,
-			songLink: 'https://sndup.net/d8d2/d',
+			songLink: 'https://sndup.net/rb6s/m',
 			featuredLinks: [
 				{
 					name: 'TikTok',
