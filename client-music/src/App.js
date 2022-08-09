@@ -41,7 +41,7 @@ function App() {
 				volume={vocalVolume}
 			/>
 			<ReactHowler
-				src={songs[song + 1].data.songLink}
+				src={songs[song].data.vocalLink}
 				playing={playing}
 				html5={true}
 				preload={true}

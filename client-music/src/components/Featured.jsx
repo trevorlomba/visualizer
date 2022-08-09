@@ -51,7 +51,7 @@ const Featured = ({artistName, playing, setPlaying, song, setSong, vocalVolume, 
 						{!playing ? <AiFillPlayCircle /> : <AiFillPauseCircle />}
 					</div>
 				</div>
-				<FeaturedLinks />
+				<FeaturedLinks song={song} />
 				<BsChevronDoubleDown onClick={nextSong} className='scroll-prompt' />
 				<img className='title' src={logoImage} />
 				<img className='featured' src={featuredImage} alt=''></img>

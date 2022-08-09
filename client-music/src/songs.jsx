@@ -18,6 +18,7 @@ const songs = [
 			background: backgroundImage,
 			logo: logoImage,
 			songLink: 'https://sndup.net/xzzk/d',
+			vocalLink: 'https://sndup.net/rb6s/m',
 			featuredLinks: [
 				{
 					name: 'TikTok',
@@ -57,38 +58,28 @@ const songs = [
 		data: {
 			background: backgroundImage2,
 			logo: logoImage,
-			songLink: 'https://sndup.net/rb6s/m',
+			songLink: 'https://sndup.net/wsv2/m',
+			vocalLink: 'https://sndup.net/9c5h/m',
 			featuredLinks: [
 				{
-					name: 'TikTok',
+					name: 'Tok',
 					tag: 'tiktok',
 					link: 'https://www.tiktok.com/@lxvimusic',
 					img: <IoLogoTiktok />,
 				},
 				{
-					name: 'Instagram',
+					name: 'Insta',
 					tag: 'instagram',
 					link: 'https://www.instagram.com/lxvimusic',
 					img: <TiSocialInstagram />,
 				},
 				{
-					name: 'Spotify',
+					name: 'Spot',
 					tag: 'spotify',
 					link: 'https://open.spotify.com/artist/1VvdebwNf9wAPhoti1uQtn?C=',
 					img: <RiSpotifyLine />,
 				},
-				{
-					name: 'Apple Music',
-					tag: 'apple',
-					link: 'https://music.apple.com/us/artist/lxvi/990781367',
-					img: <AiOutlineApple />,
-				},
-				{
-					name: 'Merch',
-					tag: 'merch',
-					link: 'https://www.instagram.com/',
-					img: <IoShirtOutline />,
-				},
+				
 			],
 		},
 	},

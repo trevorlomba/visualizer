@@ -3,8 +3,8 @@ import {TiSocialInstagram} from 'react-icons/ti'
 import links from './links.jsx'
 
 
-const FeaturedLinks = () => {
-     const mappedLinks = links.map((link) => (
+const FeaturedLinks = ({song}) => {
+	 const mappedLinks = song.data.featuredLinks.map((link) => (
 				<tr
 					onClick={() => {
 						window.open(`${link.link}`, '_blank')
@@ -15,11 +15,12 @@ const FeaturedLinks = () => {
 					</td>
 				</tr>
 			))
-    return (
-			<div className='featured-links'>
-				<table>{mappedLinks}</table>
-			</div>
-		)
+	return (
+		<div className='featured-links'>
+			<table>{mappedLinks}</table>
+			{/* {song.data.featuredLinks[0].link} */}
+		</div>
+	)
 }
 
 export default FeaturedLinks

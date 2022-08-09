@@ -35,6 +35,7 @@ input[type=range] {
   /* Specific width is required for Firefox. */
   background: transparent;
   /* Otherwise white in Chrome */
+  transform: translateX(25%);
 }
 
 input[type=range]::-webkit-slider-thumb {
@@ -64,7 +65,7 @@ input[type=range]::-webkit-slider-thumb {
   border-radius: 3px;
   background: #ffffff;
   cursor: pointer;
-  margin-top: -14px;
+  margin-top: -7px;
   /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
   /* Add cool effects to your sliders! */
