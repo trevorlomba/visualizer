@@ -21,6 +21,7 @@
 
 .featured {
     object-fit: cover;
+    background-repeat: repeat;
     background-color: #282c34;
     height: 100vh;
     /* min-height: 80vh; */
@@ -109,8 +110,8 @@
     transform:scaleX(110%);
     transition: 80ms;
     cursor: pointer;
-    background-color: #3d435061;
-        border: solid rgba(0, 0, 0, 0.213) .5px;
+    background-color: #0000002b;
+        border: solid rgba(0, 0, 0, 0.106) .5px;
         border-radius: .7rem;
 }
 
@@ -120,12 +121,12 @@
 }
 
 .scroll-prompt-top {
-    font-size: 4vw;
+    font-size: 6vw;
     position: absolute;
     color: rgba(255, 255, 255, 0.263);
     top: 1%;
     margin: auto;
-    opacity: 60%;
+    opacity: 10%;
     transform: translate(-2vw);
     transition: 300ms;
     /* display: none; */
@@ -133,12 +134,12 @@
 }
 
 .scroll-prompt {
-    font-size: 4vw;
+    font-size: 6vw;
     position: absolute;
     color: rgba(255, 255, 255, 0.263);
     bottom: 1%;
     margin: auto;
-    opacity: 60%;
+    opacity: 10%;
     transform: translate(-2vw);
     transition: 300ms;
     /* display: none; */
@@ -146,6 +147,12 @@
 }
 
 .scroll-prompt:hover {
+    transition: 300ms;
+    color: white;
+    opacity: 90%;
+}
+
+.scroll-prompt-top:hover {
     transition: 300ms;
     color: white;
     opacity: 90%;
@@ -213,7 +220,7 @@
 }
 
 .pause {
-    color: #ffffff1e;
+    color: #ffffff09;
 }
 
 
