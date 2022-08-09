@@ -128,7 +128,7 @@
     margin: auto;
     opacity: 10%;
     transform: translate(-2vw);
-    transition: 300ms;
+    transition: 500ms;
     /* display: none; */
     cursor: pointer;
 }
@@ -141,19 +141,19 @@
     margin: auto;
     opacity: 10%;
     transform: translate(-2vw);
-    transition: 300ms;
+    transition: 500ms;
     /* display: none; */
     cursor: pointer;
 }
 
 .scroll-prompt:hover {
-    transition: 300ms;
+    transition: 500ms;
     color: white;
     opacity: 90%;
 }
 
 .scroll-prompt-top:hover {
-    transition: 300ms;
+    transition: 500ms;
     color: white;
     opacity: 90%;
 }
@@ -221,6 +221,10 @@
 
 .pause {
     color: #ffffff09;
+}
+
+.pause:hover {
+    color: #ffffffbe
 }
 
 
