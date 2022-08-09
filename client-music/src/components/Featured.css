@@ -8,7 +8,7 @@
     justify-content: top;
     font-size: calc(10px + 2vmin);
     color: white;
-    padding: 1em;
+    margin: 1em;
     transition: 200ms;
     position: fixed;
     cursor: pointer;
@@ -151,6 +151,12 @@
     opacity: 90%;
 }
 
+.scroll-prompt-top:hover {
+    transition: 300ms;
+    color: white;
+    opacity: 90%;
+}
+
 .react-icon {
     font-size: 2rem;
     padding-right: .5rem;
@@ -188,15 +194,15 @@
 
 .playButton {
     cursor: pointer;
-    display: absolute;
+    display: flex;
     position: fixed;
-    right: 10px;
-    padding: 1em;
+    right: 1em;
+    top: 1em;
 }
 
 .playButton>* {
     color: rgb(255, 255, 255);
-    font-size: 4rem;
+    font-size: 8rem;
     transition: 500ms;
 }
 
@@ -217,14 +223,34 @@
 }
 
 .volume {
-    margin: auto;
-
+margin-left: auto !important;
+    margin-right: auto !important;
+    bottom: 10px;
 }
 
 .slider-container {
-    position: absolute;
-    top: 10%;
-    left: 40%;
+    position: fixed;
+        /* left: 50%; */
+        top: 50%;
+        margin-left: 30vw;
+}
+
+.invisible {
+    opacity: 0;
+    transition: 500ms;
+    pointer-events: none;
+}
+
+.visible {
+    transition: 500ms;
+}
+
+.title.invisible {
+    opacity: 10%;
+    pointer-events:all;
+    transition-delay: 400ms;
+    transition-property: opacity;
+    /* display: block; */
 }
 
 @media only screen and (min-width: 600px) {

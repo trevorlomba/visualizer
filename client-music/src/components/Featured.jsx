@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import './Featured.css'
 
 // import featuredImage from '../assets/background.gif'
@@ -13,6 +13,8 @@ import songs from "../songs";
 const Featured = ({artistName, playing, setPlaying, song, setSong, vocalVolume, setVocalVolume}) => {
 	let featuredImage = song.data.background
 	let logoImage = song.data.logo
+	let logoImage2 = song.data.logo2
+	const [visible, setVisible] = useState(true)
 	console.log(song)
 
 	const prevSong = () => {
@@ -29,32 +31,42 @@ const Featured = ({artistName, playing, setPlaying, song, setSong, vocalVolume, 
 		} else {
 		setSong((prevState) => prevState + 1)}
 	}
+	const toggleVisible = () => {
+		setVisible((prevState) => !prevState)
+	}
 	
     return (
 			<div>
 				{/* <div>{song.id}</div>≈ */}
-				<BsChevronDoubleUp onClick={prevSong} className='scroll-prompt-top' />
+				<BsChevronDoubleUp
+					onClick={prevSong}
+					className={`scroll-prompt-top ${visible ? 'visible' : 'invisible'}`}
+				/>
 				<div className='volume'>
-					<span className='slider-container'>
+					<div
+						className={`slider-container ${visible ? 'visible' : 'invisible'}`}>
 						<input
 							type='range'
 							min='0'
 							max='1'
-							step='.05'
+							step='.01'
 							value={vocalVolume}
 							onChange={(e) => setVocalVolume(e.target.value)}
 						/>
-					</span>
+					</div>
 				</div>
-				<div className='playButton' onClick={() => setPlaying(!playing)}>
+				<div className={`playButton ${visible ? 'visible' : 'invisible'}`} onClick={() => setPlaying(!playing)}>
 					<div className={playing ? 'pause' : 'play'}>
 						{!playing ? <AiFillPlayCircle /> : <AiFillPauseCircle />}
 					</div>
 				</div>
 				<FeaturedLinks song={song} />
-				<BsChevronDoubleDown onClick={nextSong} className='scroll-prompt' />
-				<img className='title' src={logoImage} />
-				<img className='featured' src={featuredImage} alt=''></img>
+				<BsChevronDoubleDown
+					onClick={nextSong}
+					className={`scroll-prompt ${visible ? 'visible' : 'invisible'}`}
+				/>
+				<img className={`title ${visible ? 'visible' : 'invisible'}`} onClick={toggleVisible} src={`${visible ? logoImage : logoImage2}`} />
+				<img className={`featured`} src={featuredImage} alt=''></img>
 			</div>
 		)}
 
