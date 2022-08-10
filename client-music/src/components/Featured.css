@@ -25,7 +25,7 @@
 
 .title:hover {
     transform: scale(.9);
-    transition: 500ms;
+    transition: 1000ms;
 }
 
 .featured {
@@ -269,7 +269,7 @@ margin-left: auto !important;
 
 .invisible {
     opacity: 0;
-    transition: 500ms;
+    transition: 1500ms;
     pointer-events: none;
     position: fixed;
 }
@@ -277,7 +277,7 @@ margin-left: auto !important;
 .playButton.invisible {
     /* width: 10%; */
     opacity: 0.2;
-    transition: 500ms;
+    transition: 1500ms;
     transition-delay: 400ms;
     pointer-events: all;
     
@@ -287,18 +287,20 @@ margin-left: auto !important;
     transition: 500ms;
 }
 
+.title.invisible:hover {
+    transition: 1500ms;}
+
 .title.invisible {
-    opacity: 40%;
+    opacity: 10%;
     pointer-events:all;
-    transition-delay: 400ms;
-    transition-property: opacity;
+    /* transition-delay: 100ms; */
+    /* transition-property: opacity; */
     /* display: block; */
-    transition: 500ms;
+    transition: 150ms;
+    /* transition-property: opacity; */
 }
 
-.title.invisible:hover {
-    transition: 500ms;
-}
+
 
 .slider-container.invisible {
     opacity: 0%;
