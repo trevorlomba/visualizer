@@ -16,7 +16,7 @@ const songs = [
 	{
 		id: 0,
 		data: {
-			background: backgroundImage,
+			background:backgroundImage,
 			logo: logoImage,
 			logo2: logoImage2,
 			songLink: 'https://sndup.net/xzzk/d',
@@ -58,7 +58,8 @@ const songs = [
 	{
 		id: 1,
 		data: {
-			background: backgroundImage2,
+			background:
+				backgroundImage2,
 			logo: logoImage,
 			logo2: logoImage2,
 			songLink: 'https://sndup.net/wsv2/m',

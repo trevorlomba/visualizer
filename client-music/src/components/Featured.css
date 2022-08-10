@@ -1,17 +1,26 @@
 .title {
     /* background-color: #282c34; */
-    min-height: 10vw;
-    max-height: 10vw;
-    display: flex;
+    height: auto;
+    max-height: 100vh;
+        width: auto;
+        max-width: 12vw;
+        display: absolute;
+        left: 2vw;
+        top: 2vw;
+        cursor: pointer;
+        opacity: 95%;
+        /* padding: 12em; */
+    height: auto;
     flex-direction: column;
     align-items: center;
     justify-content: top;
     font-size: calc(10px + 2vmin);
     color: white;
-    margin: 1em;
+    /* margin: 1em; */
     transition: 200ms;
     position: fixed;
     cursor: pointer;
+    opacity: 95%;
 }
 
 .title:hover {
@@ -194,15 +203,15 @@
 
 .playButton {
     cursor: pointer;
-    display: flex;
+    /* display: flex; */
     position: fixed;
-    right: 1em;
-    top: 1em;
+    right: calc(4vw);
+    top: 4vw;
 }
 
 .playButton>* {
     color: rgb(255, 255, 255);
-    font-size: 8rem;
+    font-size: 8em;
     transition: 500ms;
 }
 
@@ -222,6 +231,14 @@
     color: #ffffff1e;
 }
 
+.invisible > .pause {
+    color: #ffffff00;
+}
+
+.invisible>.pause:hover {
+    color: #ffffff6e;
+}
+
 .volume {
 margin-left: auto !important;
     margin-right: auto !important;
@@ -235,10 +252,24 @@ margin-left: auto !important;
         margin-left: 30vw;
 }
 
+.slider-container.invisible:hover {
+    opacity: 100%;
+}
+
 .invisible {
     opacity: 0;
     transition: 500ms;
     pointer-events: none;
+    position: fixed;
+}
+
+.playButton.invisible {
+    /* width: 10%; */
+    opacity: 0.2;
+    transition: 500ms;
+    transition-delay: 400ms;
+    pointer-events: all;
+    
 }
 
 .visible {
@@ -246,25 +277,103 @@ margin-left: auto !important;
 }
 
 .title.invisible {
-    opacity: 10%;
+    opacity: 40%;
     pointer-events:all;
     transition-delay: 400ms;
     transition-property: opacity;
     /* display: block; */
+    transition: 500ms;
 }
 
-@media only screen and (min-width: 600px) {
-    .title {
-            min-height: 10vw;
-            max-height: 10vw;
-            /* display: flex; */
-            flex-direction: column;
-            align-items: flex-end;
-            justify-content: top;
-            font-size: calc(10px + 2vmin);
-            color: white;
-            padding: 1em;
-            transition: 500ms;
-            /* position: fixed; */
-        }
+.title.invisible:hover {
+    transition: 500ms;
 }
+
+.slider-container.invisible {
+    opacity: 0%;
+    pointer-events: all;
+    transition-delay: 500ms;
+    transition-property: opacity;
+    /* display: block; */
+}
+
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+@media only screen and (max-width: 800px) {
+    .title {
+            height: auto;
+            min-width: 20vw;
+            max-width: 20vw;
+            display: absolute;
+            left: 4vw;
+            top: 4vw;
+            cursor: pointer;
+            opacity: 95%;
+            /* padding: 12em; */
+        }
+    .playButton>* {
+        font-size: 8em;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .playButton>* {
+            font-size: 6em;
+        }}
+@media only screen and (max-width: 300px) {
+.title {
+            height: auto;
+            min-width: 20vw;
+            max-width: 20vw;
+            display: absolute;
+            left: 40vw;
+            top: 20vh;
+            cursor: pointer;
+            opacity: 95%;
+            /* padding: 12em; */
+        }
+    .playButton {
+            height: auto;
+            min-width: 0vw;
+            max-width: 0vw;
+            display: absolute;
+            left: calc(50vw - 2em);
+            top: 80vh;
+            cursor: pointer;
+            opacity: 95%;
+            /* padding: 12em; */
+        }
+                        .playButton>* {
+                            font-size: 4em;
+                        }
+}
+@media only screen and (max-height: 300px) {
+    .title {
+        min-height: 20vh;
+        max-height: 50vh;
+        min-width: 40vh;
+            display: absolute;
+            left: 4vw;
+            top: 20vh;
+            cursor: pointer;
+            opacity: 95%;
+            /* padding: 12em; */
+        }
+                .playButton {
+                    height: auto;
+                    min-width: 0vw;
+                    max-width: 0vw;
+                    display: absolute;
+                    right: 13vw;
+                    top: 20vh;
+                    cursor: pointer;
+                    opacity: 95%;
+                    /* padding: 12em; */
+                }
+                                   
+    }

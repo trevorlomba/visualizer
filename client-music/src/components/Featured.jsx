@@ -55,7 +55,9 @@ const Featured = ({artistName, playing, setPlaying, song, setSong, vocalVolume, 
 						/>
 					</div>
 				</div>
-				<div className={`playButton ${visible ? 'visible' : 'invisible'}`} onClick={() => setPlaying(!playing)}>
+				<div
+					className={`playButton ${visible ? 'visible' : 'invisible'}`}
+					onClick={() => setPlaying(!playing)}>
 					<div className={playing ? 'pause' : 'play'}>
 						{!playing ? <AiFillPlayCircle /> : <AiFillPauseCircle />}
 					</div>
@@ -65,7 +67,12 @@ const Featured = ({artistName, playing, setPlaying, song, setSong, vocalVolume, 
 					onClick={nextSong}
 					className={`scroll-prompt ${visible ? 'visible' : 'invisible'}`}
 				/>
-				<img className={`title ${visible ? 'visible' : 'invisible'}`} onClick={toggleVisible} src={`${visible ? logoImage : logoImage2}`} />
+				<img
+					className={`title ${visible ? 'visible' : 'invisible'}`}
+					onClick={toggleVisible}
+					src={`${visible ? logoImage : logoImage2}`}
+					alt='logo'
+				/>
 				<img className={`featured`} src={featuredImage} alt=''></img>
 			</div>
 		)}
