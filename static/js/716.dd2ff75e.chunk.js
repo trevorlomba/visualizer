@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmusic_demo=self.webpackChunkmusic_demo||[]).push([[716],{716:function(e,i,c){c.r(i);c(791);var l=c(184);i.default=function(e){var i=e.visibility,c=e.visible,o=e.toggleVisible,s=e.logoImage,t=e.logoImage2;return(0,l.jsx)("img",{className:"title ".concat(i),onClick:o,src:"".concat(c?s:t),alt:"logo"})}}}]);
+//# sourceMappingURL=716.dd2ff75e.chunk.js.map
