@@ -5,9 +5,12 @@ import './Featured.css'
 // import logoImage from '../assets/logo.png'
 
 import FeaturedLinks from './FeaturedLinks'
-import { AiFillPauseCircle, AiFillPlayCircle } from 'react-icons/ai'
 import { BsChevronDoubleDown, BsChevronDoubleUp } from 'react-icons/bs'
+import { AiFillPauseCircle, AiFillPlayCircle } from 'react-icons/ai'
 import songs from "../songs";
+
+const FeaturedImage = React.lazy(() => import('./FeaturedImage'))
+const Logo = React.lazy(() => import('./Logo'))
 
 
 const Featured = ({artistName, playing, setPlaying, song, setSong, vocalVolume, setVocalVolume}) => {
@@ -34,17 +37,20 @@ const Featured = ({artistName, playing, setPlaying, song, setSong, vocalVolume, 
 	const toggleVisible = () => {
 		setVisible((prevState) => !prevState)
 	}
+	const togglePlaying = () => {
+		setPlaying((prevState) => !prevState)
+	}
+	const visibility = visible ? 'visible' : 'invisible'
 	
     return (
 			<div>
 				{/* <div>{song.id}</div>≈ */}
 				<BsChevronDoubleUp
 					onClick={prevSong}
-					className={`scroll-prompt-top ${visible ? 'visible' : 'invisible'}`}
+					className={`scroll-prompt-top ${visibility}`}
 				/>
 				<div className='volume'>
-					<div
-						className={`slider-container ${visible ? 'visible' : 'invisible'}`}>
+					<div className={`slider-container ${visibility}`}>
 						<input
 							type='range'
 							min='0'
@@ -55,9 +61,7 @@ const Featured = ({artistName, playing, setPlaying, song, setSong, vocalVolume, 
 						/>
 					</div>
 				</div>
-				<div
-					className={`playButton ${visible ? 'visible' : 'invisible'}`}
-					onClick={() => setPlaying(!playing)}>
+				<div className={`playButton ${visibility}`} onClick={togglePlaying}>
 					<div className={playing ? 'pause' : 'play'}>
 						{!playing ? <AiFillPlayCircle /> : <AiFillPauseCircle />}
 					</div>
@@ -65,15 +69,16 @@ const Featured = ({artistName, playing, setPlaying, song, setSong, vocalVolume, 
 				<FeaturedLinks song={song} />
 				<BsChevronDoubleDown
 					onClick={nextSong}
-					className={`scroll-prompt ${visible ? 'visible' : 'invisible'}`}
+					className={`scroll-prompt ${visibility}`}
 				/>
-				<img
-					className={`title ${visible ? 'visible' : 'invisible'}`}
-					onClick={toggleVisible}
-					src={`${visible ? logoImage : logoImage2}`}
-					alt='logo'
+				<Logo
+					visible={visible}
+					visibility={visibility}
+					toggleVisible={toggleVisible}
+					logoImage={logoImage}
+					logoImage2={logoImage2}
 				/>
-				<img className={`featured`} src={featuredImage} alt=''></img>
+				<FeaturedImage featuredImage={featuredImage} />
 			</div>
 		)}
 

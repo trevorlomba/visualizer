@@ -235,11 +235,11 @@
 }
 
 .pause {
-    color: #ffffff09;
+    color: #ffffff;
 }
 
 .pause:hover {
-    color: #ffffffbe
+        color: rgb(255, 255, 255);
 }
 
 .invisible > .pause {
@@ -247,7 +247,7 @@
 }
 
 .invisible>.pause:hover {
-    color: #ffffff6e;
+    color: rgb(255, 255, 255);
 }
 
 .volume {
@@ -276,9 +276,17 @@ margin-left: auto !important;
 
 .playButton.invisible {
     /* width: 10%; */
-    opacity: 0.2;
+    opacity: 0.4;
     transition: 1500ms;
     transition-delay: 400ms;
+    pointer-events: all;
+    
+}
+.playButton.invisible:hover {
+    /* width: 10%; */
+    opacity: 1;
+    transition: 500ms;
+    /* transition-delay: 400ms; */
     pointer-events: all;
     
 }
@@ -288,10 +296,11 @@ margin-left: auto !important;
 }
 
 .title.invisible:hover {
-    transition: 1500ms;}
+    transition: 1500ms;
+    opacity: 100}
 
 .title.invisible {
-    opacity: 10%;
+    opacity: 20%;
     pointer-events:all;
     /* transition-delay: 100ms; */
     /* transition-property: opacity; */
