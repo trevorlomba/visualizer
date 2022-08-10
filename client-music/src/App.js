@@ -7,6 +7,11 @@ import { useEffect, useState } from 'react';
 // import { Howl, Howler } from 'howler'
 import ReactHowler from 'react-howler'
 
+import ReactGA from 'react-ga'
+ReactGA.initialize('G-22X1L2K6WV')
+ReactGA.pageview(window.location.pathname + window.location.search)
+
+
 
 function App() {
   const [artistName, setArtistName] = useState('yes')
