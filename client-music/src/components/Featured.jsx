@@ -4,8 +4,9 @@ import './Featured.css'
 // import featuredImage from '../assets/background.gif'
 // import logoImage from '../assets/logo.png'
 
+import Fader from './Fader'
+import ScrollPrompts from './ScrollPrompts'
 import FeaturedLinks from './FeaturedLinks'
-import { BsChevronDoubleDown, BsChevronDoubleUp } from 'react-icons/bs'
 import { AiFillPauseCircle, AiFillPlayCircle } from 'react-icons/ai'
 import songs from "../songs";
 
@@ -48,13 +49,11 @@ const Featured = ({artistName, playing, setPlaying, song, setSong, vocalVolume, 
 				style={{
 					backgroundImage: `url(${featuredImage}`,
 				}}>
-				{/* <img className={`featured`} loading = 'lazy' src={featuredImage} alt='...'></img> */}
-				{/* <div className='flex-container'>
-					<BsChevronDoubleUp
-						onClick={prevSong}
-						className={`invisible scroll-prompt flex-item ${visibility}`}
-					/>
-				</div> */}
+				<ScrollPrompts
+					visibility={visibility}
+					prevSong={prevSong}
+					nextSong={nextSong}
+				/>
 				<div className='flex-item flex-item-1'>
 					<Logo
 						className=''
@@ -65,27 +64,9 @@ const Featured = ({artistName, playing, setPlaying, song, setSong, vocalVolume, 
 						logoImage2={logoImage2}
 					/>
 				</div>
-				{/* <div>{song.id}</div>≈ */}
-
-				{/* <div className='flex-item flex-item-2'>
-						<div className='volume'>
-							<div
-								className={`slider-container flex-item flex-item-2 ${visibility}`}>
-								<input
-									type='range'
-									min='0'
-									max='1'
-									step='.01'
-									value={vocalVolume}
-									onChange={(e) => setVocalVolume(e.target.value)}
-								/>
-							</div>
-						</div>
-					</div> */}
 				<div className='flex-item flex-item-2'>
-					<div className={`scroll-container ${visibility}`}>
-						<FeaturedLinks song={song} />
-					</div>
+					<Fader songVolume={vocalVolume} setVocalVolume={setVocalVolume} visibility={visibility} />
+					{/* <FeaturedLinks song={song} visibility={visibility}/> */}
 				</div>
 				<div className='flex-item flex-item-3'>
 					<div className={`playButton ${visibility}`} onClick={togglePlaying}>
@@ -95,13 +76,6 @@ const Featured = ({artistName, playing, setPlaying, song, setSong, vocalVolume, 
 						</div>
 					</div>
 				</div>
-				{/* <div className='flex-container'>
-					<BsChevronDoubleDown
-						onClick={nextSong}
-						className={`invisible scroll-prompt flex-item ${visibility}`}
-					/>
-				</div> */}
-				{/* <FeaturedImage featuredImage={featuredImage} /> */}
 			</div>
 		)}
 

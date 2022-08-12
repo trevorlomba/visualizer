@@ -45,14 +45,6 @@ function App() {
 				loop={true}
 				volume={vocalVolume}
 			/>
-			<ReactHowler
-				src={songs[song].data.vocalLink}
-				playing={playing}
-				html5={true}
-				preload={true}
-				format={'m4a'}
-				loop={true}
-			/>
 			<Featured
 				artistName={artistName}
 				song={songs[song]}

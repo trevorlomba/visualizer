@@ -3,7 +3,7 @@ import {TiSocialInstagram} from 'react-icons/ti'
 import links from './links.jsx'
 
 
-const FeaturedLinks = ({song}) => {
+const FeaturedLinks = ({song, visibility}) => {
 	 const mappedLinks = song.data.featuredLinks.map((link) => (
 				<tr
 					onClick={() => {
@@ -16,10 +16,12 @@ const FeaturedLinks = ({song}) => {
 				</tr>
 			))
 	return (
-		<div  className='flex-item flex-item-links featured-links'>
-			<table>{mappedLinks}</table>
-			{/* {song.data.featuredLinks[0].link} */}
-		</div>
+			<div className={`scroll-container ${visibility}`}>
+				<div className='flex-item flex-item-links featured-links'>
+					<table>{mappedLinks}</table>
+					{/* {song.data.featuredLinks[0].link} */}
+				</div>
+			</div>
 	)
 }
 
