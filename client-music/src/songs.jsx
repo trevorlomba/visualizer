@@ -16,50 +16,49 @@ const songs = [
 	{
 		id: 0,
 		data: {
-			background:backgroundImage,
+			background: backgroundImage,
 			logo: logoImage,
-			logo2: logoImage2,
+			logo2: logoImage,
 			songLink: 'https://sndup.net/xzzk/d',
 			vocalLink: 'https://sndup.net/rb6s/m',
 			featuredLinks: [
-				// {
-				// 	name: 'TikTok',
-				// 	tag: 'tiktok',
-				// 	link: 'https://www.tiktok.com/@lxvimusic',
-				// 	img: <IoLogoTiktok />,
-				// },
-				// {
-				// 	name: 'Instagram',
-				// 	tag: 'instagram',
-				// 	link: 'https://www.instagram.com/lxvimusic',
-				// 	img: <TiSocialInstagram />,
-				// },
-				// {
-				// 	name: 'Spotify',
-				// 	tag: 'spotify',
-				// 	link: 'https://open.spotify.com/artist/1VvdebwNf9wAPhoti1uQtn?C=',
-				// 	img: <RiSpotifyLine />,
-				// },
-				// {
-				// 	name: 'Apple Music',
-				// 	tag: 'apple',
-				// 	link: 'https://music.apple.com/us/artist/lxvi/990781367',
-				// 	img: <AiOutlineApple />,
-				// },
-				// {
-				// 	name: 'Merch',
-				// 	tag: 'merch',
-				// 	link: 'https://www.instagram.com/',
-				// 	img: <IoShirtOutline />,
-				// },
+				{
+					name: 'TikTok',
+					tag: 'tiktok',
+					link: 'https://www.tiktok.com/@lxvimusic',
+					img: <IoLogoTiktok />,
+				},
+				{
+					name: 'Instagram',
+					tag: 'instagram',
+					link: 'https://www.instagram.com/lxvimusic',
+					img: <TiSocialInstagram />,
+				},
+				{
+					name: 'Spotify',
+					tag: 'spotify',
+					link: 'https://open.spotify.com/artist/1VvdebwNf9wAPhoti1uQtn?C=',
+					img: <RiSpotifyLine />,
+				},
+				{
+					name: `Apple Music`,
+					tag: 'apple',
+					link: 'https://music.apple.com/us/artist/lxvi/990781367',
+					img: <AiOutlineApple />,
+				},
+				{
+					name: 'Merch',
+					tag: 'merch',
+					link: 'https://www.instagram.com/',
+					img: <IoShirtOutline />,
+				},
 			],
 		},
 	},
 	{
 		id: 1,
 		data: {
-			background:
-				backgroundImage2,
+			background: backgroundImage2,
 			logo: logoImage,
 			logo2: logoImage2,
 			songLink: 'https://sndup.net/wsv2/m',

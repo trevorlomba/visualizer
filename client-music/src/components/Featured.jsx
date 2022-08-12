@@ -44,31 +44,30 @@ const Featured = ({artistName, playing, setPlaying, song, setSong, vocalVolume, 
 	
     return (
 			<div
-				className='flex-container column'
+				className='flex-container'
 				style={{
 					backgroundImage: `url(${featuredImage}`,
 				}}>
 				{/* <img className={`featured`} loading = 'lazy' src={featuredImage} alt='...'></img> */}
-				<div className='flex-container'>
+				{/* <div className='flex-container'>
 					<BsChevronDoubleUp
 						onClick={prevSong}
-						className={`scroll-prompt flex-item ${visibility}`}
+						className={`invisible scroll-prompt flex-item ${visibility}`}
+					/>
+				</div> */}
+				<div className='flex-item flex-item-1'>
+					<Logo
+						className=''
+						visible={visible}
+						visibility={visibility}
+						toggleVisible={toggleVisible}
+						logoImage={logoImage}
+						logoImage2={logoImage2}
 					/>
 				</div>
-				<div className='flex-container'>
-					<div className='flex-item flex-item-1'>
-						<Logo
-							className=''
-							visible={visible}
-							visibility={visibility}
-							toggleVisible={toggleVisible}
-							logoImage={logoImage}
-							logoImage2={logoImage2}
-						/>
-					</div>
-					{/* <div>{song.id}</div>≈ */}
+				{/* <div>{song.id}</div>≈ */}
 
-					<div className='flex-item flex-item-2'>
+				{/* <div className='flex-item flex-item-2'>
 						<div className='volume'>
 							<div
 								className={`slider-container flex-item flex-item-2 ${visibility}`}>
@@ -82,25 +81,26 @@ const Featured = ({artistName, playing, setPlaying, song, setSong, vocalVolume, 
 								/>
 							</div>
 						</div>
+					</div> */}
+				<div className='flex-item flex-item-2'>
+					<div className={`scroll-container ${visibility}`}>
+						<FeaturedLinks song={song} />
 					</div>
-					<div className='flex-item flex-item-3'>
-						<div className={`playButton ${visibility}`} onClick={togglePlaying}>
-							<div
-								className={`flex-item flex-item-3 ${
-									playing ? 'pause' : 'play'
-								}`}>
-								{!playing ? <AiFillPlayCircle /> : <AiFillPauseCircle />}
-							</div>
+				</div>
+				<div className='flex-item flex-item-3'>
+					<div className={`playButton ${visibility}`} onClick={togglePlaying}>
+						<div
+							className={`flex-item flex-item-3 ${playing ? 'pause' : 'play'}`}>
+							{!playing ? <AiFillPlayCircle /> : <AiFillPauseCircle />}
 						</div>
 					</div>
 				</div>
-				<div className='flex-container'>
-					{/* <FeaturedLinks song={song} /> */}
+				{/* <div className='flex-container'>
 					<BsChevronDoubleDown
 						onClick={nextSong}
-						className={`scroll-prompt flex-item ${visibility}`}
+						className={`invisible scroll-prompt flex-item ${visibility}`}
 					/>
-				</div>
+				</div> */}
 				{/* <FeaturedImage featuredImage={featuredImage} /> */}
 			</div>
 		)}

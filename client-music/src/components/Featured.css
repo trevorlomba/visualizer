@@ -2,26 +2,43 @@
 .flex-container {
     display: flex;
     flex-direction:row;
-    align-items: center;
-    justify-content: space-around;
+    /* align-items: flex-start; */
+    justify-content: space-between;
     /* background-color: #282c34; */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    height: 100vh;
+    /* flex-grow: 1; */
+    flex-basis: 0;
 }
 
 .flex-item {
-    display: flex
+    display: flex;
+    /* height: 100vh; */
+    align-self: flex-start
 }
 .flex-item-1 {
     justify-content: flex-start;
+    /* align-self: flex-start; */
+    /* align-content: flex-end; */
 }
 .flex-item-2 {
     justify-content: center;
+    align-self: center;
 }
 .flex-item-3 {
-    justify-content: flex-end;
+    justify-content: flex-start;
+    
+}
 
+.flex-item-banner {
+    /* max-height: 10vh; */
+}
+
+.flex-item-links {
+    /* align-self: stretch; */
+    /* flex-basis: 0; */
 }
 
 .title {
@@ -33,8 +50,8 @@
         /* display: flex; */
         /* left: 2vw; */
         /* top: 2vw; */
-        min-width: 5vw;
-        max-width: 100px;
+        /* min-width: 10vw; */
+        max-width: 15vw;
         padding: 10vw;
         cursor: pointer;
         opacity: 95%;
@@ -47,7 +64,7 @@
     /* position: fixed; */
     cursor: pointer;
     opacity: 95%;
-    width: 100%;
+    /* width: 100%; */
     pointer-events: fill;
 }
 
@@ -98,22 +115,23 @@
 
 .featured-links {
     display: flex;
-    position: absolute;
-    align-items: center;
+    /* position: absolute; */
+    align-self: flex-start;
     justify-content: center;    
-    min-width:100vw;
-    max-width:100vw;
-    height: 100vh;
-    pointer-events: none;
+    /* min-width:100vw; */
+    /* max-width:100vw; */
+    /* height: 100vh; */
+    /* pointer-events: none; */
 }
 
 .featured-links > *{
-    font-size: large;
-    height: 3em;
+    /* font-size: large; */
+    /* height: 3em; */
+    min-width: 30vw;
     margin: auto;
     border-spacing: 0 15px;
     border-radius: 20px;
-    pointer-events: all;
+    /* pointer-events: all; */
     -webkit-touch-callout: none;
     /* iOS Safari */
     -webkit-user-select: none;
@@ -131,22 +149,24 @@
 
 
 .featured-links > * > * {
-    font-size: large;
-    height: 3em;
+    /* font-size: 1vh; */
+    /* font-size: large; */
+    /* height: 3em; */
     margin: auto;
     color: white;
 }
 
 .featured-links > * > * > * {
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
     margin: 1.5rem;
-    width: 60vw;
+    /* width: 100vw; */
     transform:scaleX(110%);
     transition: 80ms;
     cursor: pointer;
     background-color: #0000002b;
-        border: solid rgba(0, 0, 0, 0.106) .5px;
-        border-radius: .7rem;
+    border: solid rgba(0, 0, 0, 0.106) .5px;
+    border-radius: .7rem;
+    font-size: calc(1vw + 1vh);  
 }
 
 .featured-links>*>*:hover {
@@ -171,6 +191,8 @@
     /* display: none; */
     cursor: pointer;
     display: flex;
+    /* min-width: 100%; */
+
 }
 
 flex-item-4 {
@@ -209,7 +231,7 @@ flex-item-5 {
 }
 
 .react-icon {
-    font-size: 2rem;
+    /* font-size: 2rem; */
     padding-right: .5rem;
     align-items: center;
     justify-content: center;
@@ -218,8 +240,8 @@ flex-item-5 {
 }
 
 .link-title {
-    font-size: 1.2rem;
-    font-weight: 110%;
+    font-size: 95%;
+    /* font-weight: 110%; */
 }
 
 .tiktok:hover > span {
@@ -297,7 +319,7 @@ flex-item-5 {
 
 .invisible > .pause {
     color: #ffffff00;
-    transition-delay: 1000ms;
+    /* transition-delay: 1000ms; */
 }
 
 .invisible>.pause:hover {
@@ -330,16 +352,16 @@ flex-item-5 {
 
 .playButton.invisible {
     /* width: 10%; */
-    opacity: 0.4;
-    transition: 1500ms;
-    transition-delay: 400ms;
+    opacity: 0.1;
+    transition: 500ms;
+    /* transition-delay: 400ms; */
     transform: scale(200%);
     
 }
-.playButton.invisible>*:hover {
+.playButton.invisible:hover {
     /* width: 10%; */
     opacity: 1;
-    transition: 500ms;
+    transition: 200ms;
     /* transition-delay: 400ms; */
     pointer-events:fill;
     
@@ -358,14 +380,17 @@ flex-item-5 {
     pointer-events:fill;
     /* display: block; */
     transition: 1500ms;
-    position: absolute;
-    top: 2vh;
-    left: 2vw;
+    /* position: absolute; */
+    /* top: 2vh; */
+    /* left: 2vw; */
     transform: scale(150%);
     /* transition-property: opacity; */
 }
 
-
+.scroll-container.invisible {
+    opacity: 0.0;
+    pointer-events: none;
+}
 
 .slider-container.invisible {
     opacity: 0%;
@@ -383,4 +408,15 @@ flex-item-5 {
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
+}
+
+.scroll-container>*>*>* {
+    overflow: auto;
+}
+.scroll-container {
+    overflow: auto;
+    max-height: 70vh;
+    min-width: 33vw;
+    padding: 1rem;
+    overflow-x: hidden;
 }

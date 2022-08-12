@@ -16,7 +16,7 @@ const FeaturedLinks = ({song}) => {
 				</tr>
 			))
 	return (
-		<div className='featured-links'>
+		<div  className='flex-item flex-item-links featured-links'>
 			<table>{mappedLinks}</table>
 			{/* {song.data.featuredLinks[0].link} */}
 		</div>
