@@ -65,8 +65,8 @@ const Featured = ({artistName, playing, setPlaying, song, setSong, vocalVolume, 
 					/>
 				</div>
 				<div className='flex-item flex-item-2'>
-					<Fader songVolume={vocalVolume} setVocalVolume={setVocalVolume} visibility={visibility} />
-					{/* <FeaturedLinks song={song} visibility={visibility}/> */}
+					{/* <Fader songVolume={vocalVolume} setVocalVolume={setVocalVolume} visibility={visibility} /> */}
+					<FeaturedLinks song={song} visibility={visibility}/>
 				</div>
 				<div className='flex-item flex-item-3'>
 					<div className={`playButton ${visibility}`} onClick={togglePlaying}>
