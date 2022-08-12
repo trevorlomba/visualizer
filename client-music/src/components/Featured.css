@@ -1,26 +1,53 @@
-.title {
+.flex-container {
+    display: flex;
+    flex-direction:row;
+    height: 100vh;
+    align-items: center;
+    justify-content: space-around;
     /* background-color: #282c34; */
-    height: auto;
-    max-height: 100vh;
-        width: auto;
-        max-width: 12vw;
-        display: absolute;
-        left: 2vw;
-        top: 2vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.flex-item {
+    display: flex
+}
+.flex-item-1 {
+    justify-content: flex-start;
+}
+.flex-item-2 {
+    justify-content: center;
+}
+.flex-item-3 {
+    justify-content: flex-end;
+
+}
+
+.title {
+    /* height: auto; */
+    /* max-height: 100vh; */
+        /* width: auto; */
+        /* max-width: 12vw; */
+        /* display: absolute; */
+        /* display: flex; */
+        /* left: 2vw; */
+        /* top: 2vw; */
+        min-width: 5vw;
+        max-width: 100px;
+        padding: 10vw;
         cursor: pointer;
         opacity: 95%;
         /* padding: 12em; */
-    height: auto;
-    flex-direction: column;
-    align-items: center;
-    justify-content: top;
-    font-size: calc(10px + 2vmin);
+    /* height: auto; */
+    /* font-size: calc(10px + 2vmin); */
     color: white;
     /* margin: 1em; */
     transition: 200ms;
-    position: fixed;
+    /* position: fixed; */
     cursor: pointer;
     opacity: 95%;
+    width: 100%;
 }
 
 .title:hover {
@@ -32,15 +59,12 @@
     object-fit: cover;
     background-repeat: repeat;
     background-color: #282c34;
-    height: 100vh;
+    /* height: 100vh; */
     /* min-height: 80vh; */
     margin: auto;
     min-width: 100vw;
     max-width: 100vw;
-    display: flex;
-    flex-direction: column;
-                align-items: flex-end;
-    justify-content: center;
+    display: absolute;
     font-size: calc(10px + 2vmin);
     color: white;
     /* padding: 1em; */
@@ -129,27 +153,36 @@
     transition: 80ms;
 }
 
-.scroll-prompt-top {
-    font-size: 6vw;
-    position: absolute;
-    color: rgba(255, 255, 255, 0.263);
-    top: 1%;
-    margin: auto;
-    opacity: 10%;
-    transform: translate(-2vw);
-    transition: 500ms;
-    /* display: none; */
-    cursor: pointer;
+.column {
+    flex-direction: column;
 }
 
 .scroll-prompt {
-    font-size: 6vw;
-    position: absolute;
+    font-size: 10vw;
+    /* position: absolute; */
     color: rgba(255, 255, 255, 0.263);
-    bottom: 1%;
-    margin: auto;
+    /* bottom: 1%; */
+    /* margin: auto; */
+    opacity: 90%;
+    /* transform: translate(-2vw); */
+    transition: 500ms;
+    /* display: none; */
+    cursor: pointer;
+    display: flex;
+}
+
+flex-item-4 {
+    align-self: flex-end;
+    justify-content: flex-end;
+}
+flex-item-5 {
+    align-self: flex-end;
+}
+.scroll-prompt-bottom {
+    /* bottom: 1%;
+    margin: auto; */
     opacity: 10%;
-    transform: translate(-2vw);
+    /* transform: translate(-2vw); */
     transition: 500ms;
     /* display: none; */
     cursor: pointer;
@@ -209,17 +242,34 @@
 }
 
 .playButton {
-    cursor: pointer;
-    /* display: flex; */
-    position: fixed;
-    right: calc(4vw);
-    top: 4vw;
+    /* height: auto; */
+        /* max-height: 100vh; */
+        /* width: auto; */
+        /* max-width: 12vw; */
+        /* display: absolute; */
+        /* display: flex; */
+        /* left: 2vw; */
+        /* top: 2vw; */
+        max-width: 100px;
+        padding: 10vw;
+        cursor: pointer;
+        opacity: 95%;
+        /* padding: 12em; */
+        /* height: auto; */
+        /* font-size: calc(10px + 2vmin); */
+        color: white;
+        /* margin: 1em; */
+        transition: 1500ms;
+        /* position: fixed; */
+        cursor: pointer;
+        opacity: 95%;
+        width: 100%;
 }
 
 .playButton>* {
     color: rgb(255, 255, 255);
-    font-size: 8em;
-    transition: 500ms;
+    font-size: 10vw;
+    transition: 2000ms;
 }
 
 .playButton>*:hover {
@@ -244,6 +294,7 @@
 
 .invisible > .pause {
     color: #ffffff00;
+    transition-delay: 1000ms;
 }
 
 .invisible>.pause:hover {
@@ -251,16 +302,16 @@
 }
 
 .volume {
-margin-left: auto !important;
-    margin-right: auto !important;
+/* margin-left: auto !important; */
+    /* margin-right: auto !important; */
     bottom: 10px;
 }
 
 .slider-container {
-    position: fixed;
+    /* position: fixed; */
         /* left: 50%; */
-        top: 50%;
-        margin-left: 30vw;
+        /* top: 50%; */
+        /* margin-left: 30vw; */
 }
 
 .slider-container.invisible:hover {
@@ -271,7 +322,7 @@ margin-left: auto !important;
     opacity: 0;
     transition: 1500ms;
     pointer-events: none;
-    position: fixed;
+    /* position: fixed; */
 }
 
 .playButton.invisible {
@@ -280,6 +331,7 @@ margin-left: auto !important;
     transition: 1500ms;
     transition-delay: 400ms;
     pointer-events: all;
+    transform: scale(200%);
     
 }
 .playButton.invisible:hover {
@@ -302,10 +354,11 @@ margin-left: auto !important;
 .title.invisible {
     opacity: 20%;
     pointer-events:all;
-    /* transition-delay: 100ms; */
-    /* transition-property: opacity; */
     /* display: block; */
-    transition: 150ms;
+    transition: 1500ms;
+    position: absolute;
+    top: 2vh;
+    left: 2vw;
     /* transition-property: opacity; */
 }
 
@@ -313,6 +366,7 @@ margin-left: auto !important;
 
 .slider-container.invisible {
     opacity: 0%;
+    display: none;
     pointer-events: all;
     transition-delay: 500ms;
     transition-property: opacity;
@@ -327,75 +381,3 @@ margin-left: auto !important;
     min-width: 100%;
     min-height: 100%;
 }
-@media only screen and (max-width: 800px) {
-    .title {
-            height: auto;
-            min-width: 20vw;
-            max-width: 20vw;
-            display: absolute;
-            left: 4vw;
-            top: 4vw;
-            cursor: pointer;
-            opacity: 95%;
-            /* padding: 12em; */
-        }
-    .playButton>* {
-        font-size: 8em;
-    }
-}
-@media only screen and (max-width: 600px) {
-    .playButton>* {
-            font-size: 6em;
-        }}
-@media only screen and (max-width: 300px) {
-.title {
-            height: auto;
-            min-width: 20vw;
-            max-width: 20vw;
-            display: absolute;
-            left: 40vw;
-            top: 20vh;
-            cursor: pointer;
-            opacity: 95%;
-            /* padding: 12em; */
-        }
-    .playButton {
-            height: auto;
-            min-width: 0vw;
-            max-width: 0vw;
-            display: absolute;
-            left: calc(50vw - 2em);
-            top: 80vh;
-            cursor: pointer;
-            opacity: 95%;
-            /* padding: 12em; */
-        }
-                        .playButton>* {
-                            font-size: 4em;
-                        }
-}
-@media only screen and (max-height: 300px) {
-    .title {
-        min-height: 20vh;
-        max-height: 50vh;
-        min-width: 40vh;
-            display: absolute;
-            left: 4vw;
-            top: 20vh;
-            cursor: pointer;
-            opacity: 95%;
-            /* padding: 12em; */
-        }
-                .playButton {
-                    height: auto;
-                    min-width: 0vw;
-                    max-width: 0vw;
-                    display: absolute;
-                    right: 13vw;
-                    top: 20vh;
-                    cursor: pointer;
-                    opacity: 95%;
-                    /* padding: 12em; */
-                }
-                                   
-    }
