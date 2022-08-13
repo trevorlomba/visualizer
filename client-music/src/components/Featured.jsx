@@ -1,5 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react'
 import './Featured.css'
+import { Routes, Route } from 'react-router-dom'
+import { BrowserRouter, NavLink } from 'react-router-dom'
+
 
 // import featuredImage from '../assets/background.gif'
 // import logoImage from '../assets/logo.png'
@@ -8,53 +11,88 @@ import Fader from './Fader'
 import ScrollPrompts from './ScrollPrompts'
 import FeaturedLinks from './FeaturedLinks'
 import { AiFillPauseCircle, AiFillPlayCircle } from 'react-icons/ai'
-import songs from "../songs";
+import songs from '../songs'
 
 const FeaturedImage = React.lazy(() => import('./FeaturedImage'))
 const Logo = React.lazy(() => import('./Logo'))
 
-
-const Featured = ({artistName, playing, setPlaying, song, setSong, vocalVolume, setVocalVolume}) => {
+const Featured = ({
+	artistName,
+	playing,
+	setPlaying,
+	song,
+	setSong,
+	vocalVolume,
+	setVocalVolume,
+}) => {
 	let featuredImage = song.data.background
 	let logoImage = song.data.logo
 	let logoImage2 = song.data.logo2
 	const [visible, setVisible] = useState(true)
+	const [feature, setFeature] = useState(0)
 	console.log(song)
 
 	const prevSong = () => {
-		if(song.id < 1) {
-			const newSong = songs.length-1
+		if (song.id < 1) {
+			const newSong = songs.length - 1
 			setSong(newSong)
 		} else {
-		setSong((prevState) => prevState - 1)}
+			setSong((prevState) => prevState - 1)
+		}
 	}
 	const nextSong = () => {
-		if(song.id === songs.length-1) {
+		if (song.id === songs.length - 1) {
 			const newSong = 0
 			setSong(newSong)
 		} else {
-		setSong((prevState) => prevState + 1)}
+			setSong((prevState) => prevState + 1)
+		}
 	}
 	const toggleVisible = () => {
 		setVisible((prevState) => !prevState)
+		if (visible) {
+			setFeature(1)
+		}
 	}
 	const togglePlaying = () => {
 		setPlaying((prevState) => !prevState)
 	}
 	const visibility = visible ? 'visible' : 'invisible'
-	
-    return (
-			<div
-				className='flex-container'
-				style={{
-					backgroundImage: `url(${featuredImage}`,
-				}}>
-				<ScrollPrompts
-					visibility={visibility}
-					prevSong={prevSong}
-					nextSong={nextSong}
-				/>
-				<div className='flex-item flex-item-1'>
+	let activeClassName = 'nav-active'
+	const order = ['', 'mix']
+	let next = order[feature]
+
+	const updateFeature = () => {
+		if (feature >= order.length-1) {
+			setFeature(0)
+		} else {
+			const temp = feature
+			setFeature(temp+1)
+		}
+	}
+
+	return (
+		<div
+			className='flex-container'
+			style={{
+				backgroundImage: `url(${featuredImage}`,
+			}}>
+			<ScrollPrompts
+				visibility={visibility}
+				prevSong={prevSong}
+				nextSong={nextSong}
+				activeClassName={activeClassName}
+				next={next}
+				updateFeature={updateFeature}
+				feature={feature}
+				order={order}
+			/>
+			<div className='flex-item flex-item-1'>
+				<NavLink
+					to=''
+					className={({ isActive }) =>
+						isActive ? activeClassName : undefined
+					}>
 					<Logo
 						className=''
 						visible={visible}
@@ -63,21 +101,39 @@ const Featured = ({artistName, playing, setPlaying, song, setSong, vocalVolume, 
 						logoImage={logoImage}
 						logoImage2={logoImage2}
 					/>
-				</div>
-				<div className='flex-item flex-item-2'>
-					{/* <Fader songVolume={vocalVolume} setVocalVolume={setVocalVolume} visibility={visibility} /> */}
-					<FeaturedLinks song={song} visibility={visibility}/>
-				</div>
-				<div className='flex-item flex-item-3'>
-					<div className={`playButton ${visibility}`} onClick={togglePlaying}>
-						<div
-							className={`flex-item flex-item-3 ${playing ? 'pause' : 'play'}`}>
-							{!playing ? <AiFillPlayCircle /> : <AiFillPauseCircle />}
-						</div>
+				</NavLink>
+			</div>
+			<div className='flex-item flex-item-2'>
+				<Routes>
+					<Route
+						path='/'
+						element={<FeaturedLinks song={song} visibility={visibility} />}
+					/>
+
+					<Route
+						path='/mix'
+						element={
+							<Fader
+								songVolume={vocalVolume}
+								setVocalVolume={setVocalVolume}
+								visibility={visibility}
+							/>
+						}
+					/>
+				</Routes>
+
+				{/* {song.data.element[feature]} */}
+			</div>
+			<div className='flex-item flex-item-3'>
+				<div className={`playButton ${visibility}`} onClick={togglePlaying}>
+					<div
+						className={`flex-item flex-item-3 ${playing ? 'pause' : 'play'}`}>
+						{!playing ? <AiFillPlayCircle /> : <AiFillPauseCircle />}
 					</div>
 				</div>
 			</div>
-		)}
-
+		</div>
+	)
+}
 
 export default Featured

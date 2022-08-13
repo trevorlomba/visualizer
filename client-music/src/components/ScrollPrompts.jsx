@@ -1,9 +1,23 @@
 import React from "react";
-import { BsChevronDoubleDown, BsChevronDoubleUp } from 'react-icons/bs'
+import {
+	BsChevronDoubleDown,
+	BsChevronDoubleUp,
+	BsArrowLeftRight,
+} from 'react-icons/bs'
+import { RiOrderPlayFill } from "react-icons/ri";
+import { NavLink } from 'react-router-dom'
 
 
-
-const ScrollPrompts = ({prevSong, visibility, nextSong}) => {
+const ScrollPrompts = ({
+	activeClassName,
+	next,
+	prevSong,
+	visibility,
+	nextSong,
+	updateFeature,
+	feature,
+	order
+}) => {
 	return (
 		<>
 			<BsChevronDoubleUp
@@ -14,6 +28,14 @@ const ScrollPrompts = ({prevSong, visibility, nextSong}) => {
 				onClick={nextSong}
 				className={`scroll-prompt scroll-prompt-bottom ${visibility}`}
 			/>
+			<NavLink
+				to={next}
+				className={({ isActive }) => (isActive ? activeClassName : undefined)}>
+				<BsArrowLeftRight
+					onClick={updateFeature}
+					className={`scroll-prompt scroll-prompt-right ${visibility}`}
+				/>
+			</NavLink>
 		</>
 	)
 }

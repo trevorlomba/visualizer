@@ -3,6 +3,7 @@ import './App.css';
 import songs from './songs'
 import Featured from './components/Featured';
 import { useEffect, useState } from 'react';
+import { BrowserRouter, NavLink } from 'react-router-dom'
 
 // import { Howl, Howler } from 'howler'
 import ReactHowler from 'react-howler'
@@ -30,33 +31,34 @@ function App() {
 // 	  sound.play()
 // 	}
 	
-
+	let activeClassName = "nav-active"
   useEffect(() => {}, [])
   
 
   return (
-	  <div className='App'>
-			<ReactHowler
-				src={songs[song].data.songLink}
-				playing={playing}
-				html5={true}
-				preload={true}
-				format={'m4a'}
-				loop={true}
-				volume={vocalVolume}
-			/>
-			<Featured
-				artistName={artistName}
-				song={songs[song]}
-				setSong={setSong}
-				setArtistName={setArtistName}
-				className='title'
-				playing={playing}
-				setPlaying={setPlaying}
-				vocalVolume={vocalVolume}
-				setVocalVolume={setVocalVolume}
-			/>
-			{/* <div className='volume'>
+		<BrowserRouter>
+			<div className='App'>
+				<ReactHowler
+					src={songs[song].data.songLink}
+					playing={playing}
+					html5={true}
+					preload={true}
+					format={'m4a'}
+					loop={true}
+					volume={vocalVolume}
+				/>
+				<Featured
+					artistName={artistName}
+					song={songs[song]}
+					setSong={setSong}
+					setArtistName={setArtistName}
+					className='title'
+					playing={playing}
+					setPlaying={setPlaying}
+					vocalVolume={vocalVolume}
+					setVocalVolume={setVocalVolume}
+				/>
+				{/* <div className='volume'>
 				<label>
 					Volume:
 					<span className='slider-container'>
@@ -73,7 +75,8 @@ function App() {
 					</span>
 				</label>
 			</div> */}
-		</div>
+			</div>
+		</BrowserRouter>
 	)
 }
 

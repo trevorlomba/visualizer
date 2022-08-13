@@ -26,6 +26,8 @@
 .flex-item-2 {
     justify-content: center;
     align-self: center;
+    max-width: 30vw;
+    min-width: 30vw;
 }
 .flex-item-3 {
     justify-content: flex-start;
@@ -185,7 +187,7 @@
     display: block;
     color: rgba(255, 255, 255, 0.263);
     text-align: center;
-    left: calc(50vw);
+    /* left: calc(50vw); */
     /* margin: auto; */
     opacity: 20%;
     /* transform: translate(-2vw); */
@@ -198,10 +200,19 @@
 }
 .scroll-prompt-top {
     top: 5%;
+    left: calc(50vw);
 }
 
 .scroll-prompt-bottom {
     bottom: 5%;
+    left: calc(50vw);
+}
+
+.scroll-prompt-right {
+    /* right: 5%; */
+    /* left: 95vw; */
+    right: 5vw;
+    bottom: 5vh;
 }
 
 flex-item-4 {
@@ -322,6 +333,7 @@ flex-item-5 {
 }
 
 .slider-container {
+    max-width: 30vw;
     /* position: fixed; */
         /* left: 50%; */
         /* top: 50%; */
@@ -408,4 +420,12 @@ flex-item-5 {
     min-width: 33vw;
     padding: 1rem;
     overflow-x: hidden;
+}
+
+.nav-active {
+
+    color: grey;
+
+    font-weight: bold;
+
 }

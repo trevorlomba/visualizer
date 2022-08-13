@@ -1,5 +1,8 @@
 import React from 'react'
 
+import Fader from './components/Fader'
+import FeaturedLinks from './components/FeaturedLinks'
+
 import { TiSocialInstagram } from 'react-icons/ti'
 import { TbBrandSpotify } from 'react-icons/tb'
 import { AiOutlineApple } from 'react-icons/ai'
@@ -15,6 +18,7 @@ import backgroundImage2 from './assets/background2.gif'
 const songs = [
 	{
 		id: 0,
+		elements: [<FeaturedLinks />, <Fader />],
 		data: {
 			background: backgroundImage,
 			logo: logoImage,
@@ -46,17 +50,18 @@ const songs = [
 					link: 'https://music.apple.com/us/artist/lxvi/990781367',
 					img: <AiOutlineApple />,
 				},
-				{
-					name: 'Merch',
-					tag: 'merch',
-					link: 'https://www.instagram.com/',
-					img: <IoShirtOutline />,
-				},
+				// {
+				// 	name: 'Merch',
+				// 	tag: 'merch',
+				// 	link: 'https://www.instagram.com/',
+				// 	img: <IoShirtOutline />,
+				// },
 			],
 		},
 	},
 	{
 		id: 1,
+		elements: [<FeaturedLinks />, <Fader />],
 		data: {
 			background: backgroundImage2,
 			logo: logoImage,
@@ -88,12 +93,12 @@ const songs = [
 					link: 'https://music.apple.com/us/artist/lxvi/990781367',
 					img: <AiOutlineApple />,
 				},
-				{
-					name: 'Merch',
-					tag: 'merch',
-					link: 'https://www.instagram.com/',
-					img: <IoShirtOutline />,
-				},
+				// {
+				// 	name: 'Merch',
+				// 	tag: 'merch',
+				// 	link: 'https://www.instagram.com/',
+				// 	img: <IoShirtOutline />,
+				// },
 			],
 		},
 	},
