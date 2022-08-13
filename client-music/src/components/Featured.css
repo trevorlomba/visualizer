@@ -55,7 +55,7 @@
         /* min-width: 10vw; */
         max-width: 15vw;
         margin-top: 10vw;
-        margin-left: 10vw;
+        /* margin-left: 10vw; */
         cursor: pointer;
         opacity: 95%;
         /* padding: 12em; */
@@ -212,8 +212,9 @@
 .scroll-prompt-right {
     /* right: 5%; */
     /* left: 95vw; */
-    right: 5vw;
-    bottom: 5vh;
+    font-size: 7vw;
+    right: 2vw;
+    bottom: 2vh;
 }
 
 flex-item-4 {
@@ -264,6 +265,21 @@ flex-item-5 {
 .merch:hover > span {
     transition: 300ms;
     color:#a6a9af
+}
+
+.merch {}
+
+.merch>*{
+    /* min-width: 30vw; */
+}
+
+.merch-image {
+    max-width: 30vw;
+}
+
+.merch-button {
+    margin-top: 5vh;
+    max-width: 25vw;
 }
 
 .playButton {

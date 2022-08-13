@@ -7,6 +7,7 @@ import { BrowserRouter, NavLink } from 'react-router-dom'
 // import featuredImage from '../assets/background.gif'
 // import logoImage from '../assets/logo.png'
 
+import Merch from './Merch'
 import Fader from './Fader'
 import ScrollPrompts from './ScrollPrompts'
 import FeaturedLinks from './FeaturedLinks'
@@ -59,7 +60,7 @@ const Featured = ({
 	}
 	const visibility = visible ? 'visible' : 'invisible'
 	let activeClassName = 'nav-active'
-	const order = ['', 'mix']
+	const order = ['', 'mix', 'merch']
 	let next = order[feature]
 
 	const updateFeature = () => {
@@ -114,6 +115,16 @@ const Featured = ({
 						path='/mix'
 						element={
 							<Fader
+								songVolume={vocalVolume}
+								setVocalVolume={setVocalVolume}
+								visibility={visibility}
+							/>
+						}
+					/>
+					<Route
+						path='/merch'
+						element={
+							<Merch
 								songVolume={vocalVolume}
 								setVocalVolume={setVocalVolume}
 								visibility={visibility}
