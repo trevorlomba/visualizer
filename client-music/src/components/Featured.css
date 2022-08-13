@@ -54,7 +54,8 @@
         /* top: 2vw; */
         /* min-width: 10vw; */
         max-width: 15vw;
-        padding: 10vw;
+        margin-top: 10vw;
+        margin-left: 10vw;
         cursor: pointer;
         opacity: 95%;
         /* padding: 12em; */
@@ -275,7 +276,8 @@ flex-item-5 {
         /* left: 2vw; */
         /* top: 2vw; */
         max-width: 100px;
-        padding: 10vw;
+        margin-top: 10vw;
+        margin-right: 10vw;
         cursor: pointer;
         opacity: 95%;
         /* padding: 12em; */
