@@ -36,7 +36,7 @@ function App() {
   
 
   return (
-		<BrowserRouter>
+		<BrowserRouter basename='/music-demo'>
 			<div className='App'>
 				<ReactHowler
 					src={songs[song].data.songLink}
