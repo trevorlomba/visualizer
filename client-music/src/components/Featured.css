@@ -162,7 +162,7 @@
     padding: 1rem 1rem;
     margin: 1.5rem;
     /* width: 100vw; */
-    transform:scaleX(110%);
+    transform:scaleX(105%);
     transition: 80ms;
     cursor: pointer;
     background-color: #0000002b;
@@ -333,7 +333,7 @@ flex-item-5 {
 }
 
 .slider-container {
-    max-width: 30vw;
+    max-width: 33vw;
     /* position: fixed; */
         /* left: 50%; */
         /* top: 50%; */
