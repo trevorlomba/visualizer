@@ -183,7 +183,7 @@
 }
 
 .scroll-prompt {
-    font-size: 5vw;
+    font-size: 7vw;
     position: absolute;
     display: block;
     color: rgba(255, 255, 255, 0.073);
@@ -212,8 +212,9 @@
 .scroll-prompt-right {
     /* right: 5%; */
     /* left: 95vw; */
-    /* opacity: 100%; */
+    opacity: 40%;
     font-size: 7vw;
+        color: rgb(255, 255, 255);
     max-width: 100px;
     position: absolute;
     right: 15vw;
@@ -300,7 +301,7 @@ flex-item-5 {
     background-color: #ffffffc8;
     /* border-color: #282c34; */
     font-weight: bold;
-    padding: 1rem 3rem;
+    /* padding: 1rem 3rem; */
     border-radius: 24px;
         background-color: #0000002b;
             border: solid rgba(0, 0, 0, 0.106) .5px;
@@ -338,6 +339,7 @@ flex-item-5 {
 .merch-button:hover span {
     padding-right: 15px;
     font-weight: bolder;
+    font-size: 5vw;
     /* transition: 100ms; */
     /* transition-property: font-weight; */
 }
