@@ -1,17 +1,45 @@
 import React from "react";
-
+import { useState } from "react";
 import './Fader.css'
+import { Link } from "react-router-dom";
 import ContainedButtons from "./ContainedButtons";
 
-import tshirt from '../assets/merch.png'
+import merch1 from '../assets/merch.png'
+import merch2 from '../assets/merch2.png'
 
-const Fader = ({songVolume, visibility, setVocalVolume}) => {
+
+
+const Fader = ({visibility, song}) => {
+	const [active, setActive] = useState(0)
+	const merch = [
+		{'img': merch1, 'address': 'https://www.internet.com/'} ,
+		{'img': merch2, 'address': 'https://www.internet.com/'} 
+	]
+	let activeMerch = merch[active]
+	let image = activeMerch.img
+	
+	const updateFeature = () => {
+		if (active >= merch.length - 1) {
+			setActive(0)
+		} else {
+			const temp = active
+			setActive(temp + 1)
+		}
+	}
 	return (
 		<div className={`merch ${visibility}`}>
-			<img className={`merch-image`} src={tshirt} alt='tshirt'></img>
-			<button className='merch-button'>
-				<span>Buy Now</span>
-			</button>
+			<img
+				onClick={updateFeature}
+				className={`merch-image`}
+				src={image}
+				alt='merch'></img>
+			<div>
+				<button
+					className='merch-button'
+					onClick={() => window.open(`url ${merch.address}`, '_blank')}>
+					<span>Buy Now</span>
+				</button>
+			</div>
 		</div>
 	)
 }

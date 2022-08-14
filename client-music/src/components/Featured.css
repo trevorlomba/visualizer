@@ -68,7 +68,7 @@
     cursor: pointer;
     opacity: 95%;
     /* width: 100%; */
-    pointer-events: fill;
+    pointer-events: all;
 }
 
 .title:hover {
@@ -212,9 +212,12 @@
 .scroll-prompt-right {
     /* right: 5%; */
     /* left: 95vw; */
+    /* opacity: 100%; */
     font-size: 7vw;
-    right: 2vw;
-    bottom: 2vh;
+    max-width: 100px;
+    position: absolute;
+    right: 15vw;
+    bottom: 10vw;
 }
 
 flex-item-4 {
@@ -277,6 +280,7 @@ flex-item-5 {
     max-width: 70vw;
     max-height: 45vh;
     transition: 500ms;
+    transition-delay: 500ms;
     filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.4));
     cursor: pointer;
 }
@@ -295,7 +299,7 @@ flex-item-5 {
     max-width: 25vw;
     background-color: #ffffffc8;
     /* border-color: #282c34; */
-    /* font-weight: light; */
+    font-weight: bold;
     padding: 1rem 3rem;
     border-radius: 24px;
         background-color: #0000002b;

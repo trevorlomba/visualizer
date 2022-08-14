@@ -2,6 +2,7 @@ import React from 'react'
 
 import Fader from './components/Fader'
 import FeaturedLinks from './components/FeaturedLinks'
+import Merch from './components/Merch'
 
 import { TiSocialInstagram } from 'react-icons/ti'
 import { TbBrandSpotify } from 'react-icons/tb'
@@ -15,10 +16,14 @@ import logoImage from './assets/logo.png'
 import logoImage2 from './assets/logo2.png'
 import backgroundImage2 from './assets/background2.gif'
 
+import merch1 from './assets/merch.png'
+import merch2 from './assets/merch2.png'
+
+
 const songs = [
 	{
 		id: 0,
-		elements: [<FeaturedLinks />, <Fader />],
+		elements: [<FeaturedLinks />, <Fader />, <Merch />],
 		data: {
 			background: backgroundImage,
 			logo: logoImage,
@@ -57,6 +62,10 @@ const songs = [
 				// 	img: <IoShirtOutline />,
 				// },
 			],
+			// merch: [
+			// 	{ name: 'merch1', img: merch1, link: '' },
+			// 	{ name: 'merch2', img: merch2, link: '' },
+			// ],
 		},
 	},
 	{
@@ -100,6 +109,10 @@ const songs = [
 				// 	img: <IoShirtOutline />,
 				// },
 			],
+			// merch: [
+			// 	{ name: 'merch1', img: merch1, link: '' },
+			// 	// { name: 'merch2', img: merch2, link: '' },
+			// ],
 		},
 	},
 	// {

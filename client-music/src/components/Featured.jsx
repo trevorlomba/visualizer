@@ -89,20 +89,15 @@ const Featured = ({
 				order={order}
 			/>
 			<div className='flex-item flex-item-1'>
-				<NavLink
-					to='merch'
-					className={({ isActive }) =>
-						isActive ? activeClassName : undefined
-					}>
-					<Logo
-						className=''
-						visible={visible}
-						visibility={visibility}
-						toggleVisible={toggleVisible}
-						logoImage={logoImage}
-						logoImage2={logoImage2}
-					/>
-				</NavLink>
+				<Logo
+					className=''
+					visible={visible}
+					visibility={visibility}
+					toggleVisible={toggleVisible}
+					logoImage={logoImage}
+					logoImage2={logoImage2}
+					activeClassName={activeClassName}
+				/>
 			</div>
 			<div className='flex-item flex-item-2'>
 				<Routes>
@@ -121,14 +116,7 @@ const Featured = ({
 							/>
 						}
 					/>
-					<Route
-						path='/merch'
-						element={
-							<Merch
-								visibility={visibility}
-							/>
-						}
-					/>
+					<Route path='/merch' element={<Merch visibility={visibility}/>} />
 				</Routes>
 
 				{/* {song.data.element[feature]} */}
