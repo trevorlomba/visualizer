@@ -35,7 +35,7 @@
         /* top: 2vw; */
         min-width: 5vw;
         max-width: 100px;
-        padding: 10vw;
+        margin: 10vw;
         cursor: pointer;
         opacity: 95%;
         /* padding: 12em; */
@@ -323,7 +323,7 @@ flex-item-5 {
 
 .invisible {
     opacity: 0;
-    transition: 1500ms;
+    transition: 1500ms; 
     pointer-events: none;
     /* position: fixed; */
 }
@@ -331,8 +331,9 @@ flex-item-5 {
 .playButton.invisible {
     /* width: 10%; */
     opacity: 0.4;
-    transition: 1500ms;
-    transition-delay: 400ms;
+    transition: 1200ms;
+    /* transition-property: opacity; */
+    transition-delay: 500ms;
     transform: scale(200%);
     
 }
@@ -356,12 +357,13 @@ flex-item-5 {
 .title.invisible {
     opacity: 10%;
     pointer-events:fill;
+    transition-delay: 500ms;
     /* display: block; */
-    transition: 1500ms;
-    position: absolute;
-    top: 2vh;
-    left: 2vw;
-    transform: scale(150%);
+    /* transition: 1500ms; */
+    /* position: absolute; */
+    top: 32.5vh;
+    left: -4vw;
+    /* transform: scale(150%); */
     /* transition-property: opacity; */
 }
 
