@@ -3,7 +3,7 @@
     display: flex;
     flex-direction:row;
     /* align-items: flex-start; */
-    justify-content: space-between;
+    justify-content: space-around;
     /* background-color: #282c34; */
     background-size: cover;
     background-repeat: no-repeat;
@@ -274,12 +274,73 @@ flex-item-5 {
 }
 
 .merch-image {
-    max-width: 30vw;
+    max-width: 70vw;
+    max-height: 45vh;
+    transition: 500ms;
+    filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.4));
+    cursor: pointer;
+}
+.merch-image:hover {
+    transform: scale(110%);
+    transition: 500ms;
+}
+
+.merch-image:active {
+    transform: scale(104%);
+    transition: 500ms;
 }
 
 .merch-button {
-    margin-top: 5vh;
+    margin-top: 1rem;
     max-width: 25vw;
+    background-color: #ffffffc8;
+    /* border-color: #282c34; */
+    /* font-weight: light; */
+    padding: 1rem 3rem;
+    border-radius: 24px;
+        background-color: #0000002b;
+            border: solid rgba(0, 0, 0, 0.106) .5px;
+    pointer-events: all;
+    cursor:pointer;
+    color: white
+    /* display:none; */
+}
+
+.merch-button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 500ms;
+}
+
+.merch-button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -15px;
+    transition: 500ms;
+}
+
+.merch-button:hover {
+    background-color: #0000007a;
+    transition: 200ms
+}
+.merch-button:active {
+    color: #aa0a0ade;
+    transition: 1ms;
+}
+
+.merch-button:hover span {
+    padding-right: 15px;
+    font-weight: bolder;
+    /* transition: 100ms; */
+    /* transition-property: font-weight; */
+}
+
+.merch-button:hover span:after {
+    opacity: 1;
+    right: 0;
 }
 
 .playButton {

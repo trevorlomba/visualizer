@@ -49,11 +49,11 @@ const Featured = ({
 			setSong((prevState) => prevState + 1)
 		}
 	}
-	const toggleVisible = () => {
+	const toggleVisible = async () => {
 		setVisible((prevState) => !prevState)
-		if (visible) {
-			setFeature(1)
-		}
+		// if (!visible) {
+		// 	setFeature(1)
+		// }
 	}
 	const togglePlaying = () => {
 		setPlaying((prevState) => !prevState)
@@ -90,7 +90,7 @@ const Featured = ({
 			/>
 			<div className='flex-item flex-item-1'>
 				<NavLink
-					to=''
+					to='merch'
 					className={({ isActive }) =>
 						isActive ? activeClassName : undefined
 					}>
@@ -125,8 +125,6 @@ const Featured = ({
 						path='/merch'
 						element={
 							<Merch
-								songVolume={vocalVolume}
-								setVocalVolume={setVocalVolume}
 								visibility={visibility}
 							/>
 						}
