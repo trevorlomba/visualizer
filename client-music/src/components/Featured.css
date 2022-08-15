@@ -333,7 +333,7 @@ flex-item-5 {
     opacity: 0.4;
     transition: 1200ms;
     /* transition-property: opacity; */
-    transition-delay: 500ms;
+    /* transition-delay: 500ms; */
     transform: scale(200%);
     
 }
@@ -357,7 +357,7 @@ flex-item-5 {
 .title.invisible {
     opacity: 10%;
     pointer-events:fill;
-    transition-delay: 500ms;
+    /* transition-delay: 500ms; */
     /* display: block; */
     /* transition: 1500ms; */
     /* position: absolute; */

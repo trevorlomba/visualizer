@@ -9,7 +9,7 @@ import { RiSpotifyLine } from 'react-icons/ri'
 
 import backgroundImage from './assets/background.gif'
 import logoImage from './assets/logo.png'
-import logoImage2 from './assets/logo2.png'
+import logoImage2 from './assets/logo.png'
 import backgroundImage2 from './assets/background2.gif'
 
 const songs = [
