@@ -1,3 +1,8 @@
+$tiktok: #00f2ea;
+$instagram: #7385e2;
+$spotify: #3bd671;
+$apple: #f6636d;
+$merch: #a6a9af;
 
 .flex-container {
     display: flex;
@@ -61,7 +66,7 @@
     /* top: 2vw; */
     /* min-width: 10vw; */
     max-width: 15vw;
-    margin-top: 10vw;
+    margin-top: 10vh;
 
     /* margin-left: 10vw; */
     cursor: pointer;
@@ -239,12 +244,12 @@
     /* right: 5%; */
     /* left: 95vw; */
     opacity: 40%;
-    font-size: calc(4vw + 3vh);
+    font-size: calc(3vw + 3vh);
     color: rgb(255, 255, 255);
-    max-width: 100px;
+    max-width: 20vh;
     position: absolute;
     right: 15vw;
-    bottom: 10vw;
+    bottom: 10vh;
 }
 
 flex-item-4 {
@@ -280,7 +285,7 @@ flex-item-5 {
 
 .tiktok:hover>span {
     transition: 300ms;
-    color: #00f2ea;
+    color: $tiktok;
 }
 
 .instagram:hover>span {
@@ -395,7 +400,7 @@ flex-item-5 {
     /* left: 2vw; */
     /* top: 2vw; */
     max-width: 100px;
-    margin-top: 10vw;
+    margin-top: 10vh;
     margin-right: 10vw;
     cursor: pointer;
     opacity: 95%;
@@ -415,8 +420,9 @@ flex-item-5 {
 
     >* {
         color: rgb(255, 255, 255);
-        font-size: calc(5vw + 5vh);
+        font-size: calc(3vw + 3vh);
         transition: 2000ms;
+        transform: scale(110%);
         pointer-events: fill;
 
         &:hover {
