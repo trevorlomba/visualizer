@@ -103,11 +103,6 @@ const Featured = ({
 				<Routes>
 					<Route
 						path='/'
-						element={<FeaturedLinks song={song} visibility={visibility} />}
-					/>
-
-					<Route
-						path='/mix'
 						element={
 							<Fader
 								songVolume={vocalVolume}
@@ -116,7 +111,11 @@ const Featured = ({
 							/>
 						}
 					/>
-					<Route path='/merch' element={<Merch visibility={visibility}/>} />
+					{/* <Route
+						path='/links'
+						element={<FeaturedLinks song={song} visibility={visibility} />}
+					/>
+					<Route path='/merch' element={<Merch visibility={visibility}/>} /> */}
 				</Routes>
 
 				{/* {song.data.element[feature]} */}

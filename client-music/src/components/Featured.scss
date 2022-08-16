@@ -29,10 +29,8 @@ $merch: #a6a9af;
 }
 
 .flex-item-1 {
-    justify-content: flex-start;
-
-    /* align-self: flex-start; */
-    /* align-content: flex-end; */
+    justify-content: center;
+    align-self: center;
 }
 
 .flex-item-2 {
@@ -44,6 +42,7 @@ $merch: #a6a9af;
 
 .flex-item-3 {
     justify-content: flex-start;
+    align-self: center;
 }
 
 .flex-item-banner {
@@ -65,8 +64,8 @@ $merch: #a6a9af;
     /* left: 2vw; */
     /* top: 2vw; */
     /* min-width: 10vw; */
-    max-width: 15vw;
-    margin-top: 10vh;
+    max-height: 15vh;
+    margin-top: -5vh;
 
     /* margin-left: 10vw; */
     cursor: pointer;
@@ -400,7 +399,7 @@ flex-item-5 {
     /* left: 2vw; */
     /* top: 2vw; */
     max-width: 100px;
-    margin-top: 10vh;
+    // margin-top: 10vh;
     margin-right: 10vw;
     cursor: pointer;
     opacity: 95%;
@@ -420,7 +419,7 @@ flex-item-5 {
 
     >* {
         color: rgb(255, 255, 255);
-        font-size: calc(3vw + 3vh);
+        font-size: calc(5vw + 5vh);
         transition: 2000ms;
         transform: scale(110%);
         pointer-events: fill;
@@ -490,7 +489,7 @@ flex-item-5 {
     transition: 500ms;
 
     /* transition-delay: 400ms; */
-    transform: scale(200%);
+    transform: scale(150%);
 
     &:hover {
         /* width: 10%; */
@@ -509,7 +508,7 @@ flex-item-5 {
 .title.invisible {
     &:hover {
         transition: 1500ms;
-        opacity: 100;
+        opacity: .70;
     }
 
     opacity: 10%;

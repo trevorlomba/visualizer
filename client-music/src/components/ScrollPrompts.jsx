@@ -28,14 +28,14 @@ const ScrollPrompts = ({
 				onClick={nextSong}
 				className={`scroll-prompt scroll-prompt-bottom ${visibility}`}
 			/>
-			<NavLink
+			{/* <NavLink
 				to={next}
 				className={({ isActive }) => (isActive ? activeClassName : undefined)}>
 				<BsArrowLeftRight
 					onClick={updateFeature}
 					className={`scroll-prompt scroll-prompt-right ${visibility}`}
 				/>
-			</NavLink>
+			</NavLink> */}
 		</>
 	)
 }

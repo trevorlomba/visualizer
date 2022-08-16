@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom"
 const Logo = ({visibility, visible, toggleVisible, logoImage, logoImage2, activeClassName}) => {
     return (
 			<NavLink
-				to='merch'
+				to='/'
 				className={({ isActive }) => (isActive ? activeClassName : undefined)}>
 				<img
 					className={`title ${visibility}`}
