@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/music-demo/static/css/main.2d62a48c.css",
-    "main.js": "/music-demo/static/js/main.2d196891.js",
-    "static/js/38.5f191ce3.chunk.js": "/music-demo/static/js/38.5f191ce3.chunk.js",
-    "static/js/716.4b7866d5.chunk.js": "/music-demo/static/js/716.4b7866d5.chunk.js",
-    "static/js/787.3b4c159c.chunk.js": "/music-demo/static/js/787.3b4c159c.chunk.js",
-    "static/media/background2.gif": "/music-demo/static/media/background2.23c672c62d305a6468a5.gif",
-    "static/media/background.gif": "/music-demo/static/media/background.322c89df8d13e7de4b5f.gif",
-    "static/media/logo.png": "/music-demo/static/media/logo.d0e4c7063038209006b5.png",
-    "static/media/merch.png": "/music-demo/static/media/merch.849eb7f818cd4ece841a.png",
-    "static/media/merch2.png": "/music-demo/static/media/merch2.e61442a87d4a044d7e5b.png",
-    "static/media/logo2.png": "/music-demo/static/media/logo2.47adaeefaaf624920877.png",
-    "index.html": "/music-demo/index.html",
-    "main.2d62a48c.css.map": "/music-demo/static/css/main.2d62a48c.css.map",
-    "main.2d196891.js.map": "/music-demo/static/js/main.2d196891.js.map",
-    "38.5f191ce3.chunk.js.map": "/music-demo/static/js/38.5f191ce3.chunk.js.map",
-    "716.4b7866d5.chunk.js.map": "/music-demo/static/js/716.4b7866d5.chunk.js.map",
-    "787.3b4c159c.chunk.js.map": "/music-demo/static/js/787.3b4c159c.chunk.js.map"
+    "main.css": "/visualizer/static/css/main.d04b7b52.css",
+    "main.js": "/visualizer/static/js/main.f0e3d161.js",
+    "static/js/38.68745673.chunk.js": "/visualizer/static/js/38.68745673.chunk.js",
+    "static/js/716.8c8417c4.chunk.js": "/visualizer/static/js/716.8c8417c4.chunk.js",
+    "static/js/787.0c5e9af9.chunk.js": "/visualizer/static/js/787.0c5e9af9.chunk.js",
+    "static/media/background.gif": "/visualizer/static/media/background.f67ff00e6c10f676bf11.gif",
+    "static/media/background2.gif": "/visualizer/static/media/background2.5ea778d770ea9303a96e.gif",
+    "static/media/merch.png": "/visualizer/static/media/merch.849eb7f818cd4ece841a.png",
+    "static/media/merch2.png": "/visualizer/static/media/merch2.e61442a87d4a044d7e5b.png",
+    "static/media/logo2.png": "/visualizer/static/media/logo2.47adaeefaaf624920877.png",
+    "static/media/logo.png": "/visualizer/static/media/logo.b49035a4f3c6c1b9a650.png",
+    "index.html": "/visualizer/index.html",
+    "main.d04b7b52.css.map": "/visualizer/static/css/main.d04b7b52.css.map",
+    "main.f0e3d161.js.map": "/visualizer/static/js/main.f0e3d161.js.map",
+    "38.68745673.chunk.js.map": "/visualizer/static/js/38.68745673.chunk.js.map",
+    "716.8c8417c4.chunk.js.map": "/visualizer/static/js/716.8c8417c4.chunk.js.map",
+    "787.0c5e9af9.chunk.js.map": "/visualizer/static/js/787.0c5e9af9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2d62a48c.css",
-    "static/js/main.2d196891.js"
+    "static/css/main.d04b7b52.css",
+    "static/js/main.f0e3d161.js"
   ]
 }
