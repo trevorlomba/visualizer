@@ -35,7 +35,7 @@ function App() {
 					preload={true}
 					format={'m4a'}
 					loop={true}
-					volume={musicVolume}
+					volume={vocalVolume}
 				/>
 				<ReactHowler
 					src={songs[song].data.vocalLink}
@@ -44,7 +44,7 @@ function App() {
 					preload={true}
 					format={'m4a'}
 					loop={true}
-					volume={vocalVolume}
+					volume={musicVolume}
 				/>
 				<Featured
 					artistName={artistName}
