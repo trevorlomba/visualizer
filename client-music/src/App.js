@@ -1,11 +1,17 @@
 // import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import songs from './songs'
 import Featured from './components/Featured';
 import { useEffect, useState } from 'react';
+import { BrowserRouter, NavLink } from 'react-router-dom'
 
 // import { Howl, Howler } from 'howler'
 import ReactHowler from 'react-howler'
+
+import ReactGA from 'react-ga'
+ReactGA.initialize('G-22X1L2K6WV')
+ReactGA.pageview(window.location.pathname + window.location.search)
+
 
 
 function App() {
@@ -13,53 +19,45 @@ function App() {
   const [playing, setPlaying] = useState(false)
   const [song, setSong] = useState(0)
   const [vocalVolume, setVocalVolume] = useState(1.0)
-//   let sound = new Howl({
-// 	  src: audio,
-// 	  autoplay: true
-// 	})
-// 	console.log(sound)
+  const [musicVolume, setMusicVolume] = useState(1.0)
 	
-// 	const playSound = function() {
-// 	  console.log('soundplay')
-// 	  console.log(sound)``
-// 	  sound.play()
-// 	}
-	
-
+	let activeClassName = "nav-active"
   useEffect(() => {}, [])
   
 
   return (
-	  <div className='App'>
-			<ReactHowler
-				src={songs[song].data.songLink}
-				playing={playing}
-				html5={true}
-				preload={true}
-				format={'m4a'}
-				loop={true}
-				volume={vocalVolume}
-			/>
-			<ReactHowler
-				src={songs[song].data.vocalLink}
-				playing={playing}
-				html5={true}
-				preload={true}
-				format={'m4a'}
-				loop={true}
-			/>
-			<Featured
-				artistName={artistName}
-				song={songs[song]}
-				setSong={setSong}
-				setArtistName={setArtistName}
-				className='title'
-				playing={playing}
-				setPlaying={setPlaying}
-				vocalVolume={vocalVolume}
-				setVocalVolume={setVocalVolume}
-			/>
-			{/* <div className='volume'>
+		<BrowserRouter basename='/visualizer'>
+			<div className='App'>
+				<ReactHowler
+					src={songs[song].data.songLink}
+					playing={playing}
+					html5={true}
+					preload={true}
+					format={'m4a'}
+					loop={true}
+					volume={vocalVolume}
+				/>
+				<ReactHowler
+					src={songs[song].data.vocalLink}
+					playing={playing}
+					html5={true}
+					preload={true}
+					format={'m4a'}
+					loop={true}
+					volume={musicVolume}
+				/>
+				<Featured
+					artistName={artistName}
+					song={songs[song]}
+					setSong={setSong}
+					setArtistName={setArtistName}
+					className='title'
+					playing={playing}
+					setPlaying={setPlaying}
+					vocalVolume={vocalVolume}
+					setVocalVolume={setVocalVolume}
+				/>
+				{/* <div className='volume'>
 				<label>
 					Volume:
 					<span className='slider-container'>
@@ -76,7 +74,8 @@ function App() {
 					</span>
 				</label>
 			</div> */}
-		</div>
+			</div>
+		</BrowserRouter>
 	)
 }
 

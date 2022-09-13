@@ -31,12 +31,12 @@ const links = [
 		link: 'https://music.apple.com/us/artist/lxvi/990781367',
 		img: <AiOutlineApple />,
 	},
-	{
-		name: 'Merch',
-		tag: 'merch',
-		link: 'https://www.instagram.com/',
-		img: <IoShirtOutline />,
-	},
+	// {
+	// 	name: 'Merch',
+	// 	tag: 'merch',
+	// 	link: 'https://www.instagram.com/',
+	// 	img: <IoShirtOutline />,
+	// },
 ]
 
 export default links
