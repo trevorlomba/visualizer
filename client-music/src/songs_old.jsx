@@ -11,13 +11,14 @@ import { IoShirtOutline, IoLogoTiktok } from 'react-icons/io5'
 import { ImSpotify } from 'react-icons/im'
 import { RiSpotifyLine } from 'react-icons/ri'
 
-import backgroundImage from './assets/background7.gif'
+import backgroundImage from './assets/background.gif'
 import logoImage from './assets/logo.png'
 import logoImage2 from './assets/logo2.png'
-import backgroundImage2 from './assets/background.gif'
+import backgroundImage2 from './assets/background2.gif'
 
 import merch1 from './assets/merch.png'
 import merch2 from './assets/merch2.png'
+
 
 const songs = [
 	{
@@ -26,9 +27,9 @@ const songs = [
 		data: {
 			background: backgroundImage,
 			logo: logoImage,
-			logo2: logoImage2,
-			songLink: 'https://sndup.net/wsv2/m',
-			vocalLink: 'https://sndup.net/9c5h/m',
+			logo2: logoImage,
+			songLink: 'https://sndup.net/r5wc/d',
+			vocalLink: '',
 			featuredLinks: [
 				{
 					name: 'TikTok',
@@ -73,9 +74,9 @@ const songs = [
 		data: {
 			background: backgroundImage2,
 			logo: logoImage,
-			logo2: logoImage2,
-			songLink: 'https://sndup.net/xzzk/d',
-			vocalLink: 'https://sndup.net/rb6s/m',
+			logo2: logoImage,
+			songLink: 'https://sndup.net/t984/d',
+			vocalLink: '',
 			featuredLinks: [
 				{
 					name: 'TikTok',

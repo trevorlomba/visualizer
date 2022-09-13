@@ -19,6 +19,7 @@ function App() {
   const [playing, setPlaying] = useState(false)
   const [song, setSong] = useState(0)
   const [vocalVolume, setVocalVolume] = useState(1.0)
+  const [musicVolume, setMusicVolume] = useState(1.0)
 	
 	let activeClassName = "nav-active"
   useEffect(() => {}, [])
@@ -29,6 +30,15 @@ function App() {
 			<div className='App'>
 				<ReactHowler
 					src={songs[song].data.songLink}
+					playing={playing}
+					html5={true}
+					preload={true}
+					format={'m4a'}
+					loop={true}
+					volume={musicVolume}
+				/>
+				<ReactHowler
+					src={songs[song].data.vocalLink}
 					playing={playing}
 					html5={true}
 					preload={true}
