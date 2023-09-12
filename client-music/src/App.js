@@ -31,8 +31,8 @@ function App() {
   const [playing, setPlaying] = useState(false)
   const [song, setSong] = useState(0)
   const [background, setBackground] = useState(0)
-  const [vocalVolume, setVocalVolume] = useState(1.0)
-  const [musicVolume, setMusicVolume] = useState(1.0)
+  const [vocalVolume, setVocalVolume] = useState(0.5)
+  const [musicVolume, setMusicVolume] = useState(.8)
 	
 	let activeClassName = "nav-active"
   useEffect(() => {}, [])
