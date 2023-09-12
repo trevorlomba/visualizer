@@ -14,7 +14,7 @@ import { RiSpotifyLine } from 'react-icons/ri'
 import backgroundImage from './assets/background.gif'
 import logoImage from './assets/logo.png'
 import logoImage2 from './assets/logo2.png'
-import backgroundImage2 from './assets/background2.gif'
+import backgroundImage2 from './assets/background7.gif'
 import backgroundImage3 from './assets/chameleon.gif'
 import backgroundImage4 from './assets/doggo.gif'
 
