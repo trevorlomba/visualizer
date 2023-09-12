@@ -4,9 +4,102 @@ $spotify: #3bd671;
 $apple: #f6636d;
 $merch: #a6a9af;
 
+.logo {
+    position: absolute;
+    display: auto;
+    top: 10vh;
+    left: 5vw;
+    // add a drop shadow
+    filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.2));
+    
+
+}
+
+.App { 
+    background-color: black;
+}
+
+.logo {
+    // position: relative; /* Set to relative so that we can position child elements absolutely to it */
+}
+
+.speechBubble:hover {
+    // display: inline-block;
+    transition: 500ms;
+
+}
+
+.speechBubble {
+    transition: opacity 500ms; /* Only transition the opacity */
+    display: inline-block; /* Always keep the display as inline-block, control visibility using opacity */
+    opacity: 0; /* Hidden by default using opacity */
+
+    position: absolute;
+    top: -80%;
+    right: -120%;
+    color: black;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    white-space: nowrap;
+
+    
+    &.opaque {
+        opacity: 1; /* Show bubble when logo is hovered */
+        color: black;
+        transition: 500ms;
+    }
+    
+    &.invisible {
+        opacity: 0; /* Hide bubble when logo is hovered */
+        &.opaque {
+        opacity: .7; /* Show bubble when logo is hovered */
+        color: black;
+        transition: 500ms;
+    }
+    }
+    &.activeSpeechBubble {
+    opacity: 100%;
+    transition: 200ms;
+    color: black;
+    &.invisible {
+        opacity: .7; /* Hide bubble when logo is hovered */
+    }
+
+}
+
+    
+
+    /* Removed the repeated styles from .opaque, .invisible, and .visible. */
+}
+
+.speechBubble:hover {
+    
+    
+    &.opaque {
+        opacity: .8; /* Show bubble when logo is hovered */
+    }
+ 
+}
+
+.speechBubble::before {
+    content: ''; 
+    position: absolute;
+    top: 35%; /* Position it at the top of the speech bubble */
+    right: 90%; /* Shift it a bit to the left */
+    border-left: 10px solid transparent; 
+    border-right: 0px solid transparent;
+    border-bottom: 20px solid #fff; /* This color should match the background of the bubble */
+    border-top: -10px solid transparent;
+   
+}
+
+
 .flex-container {
     display: flex;
     flex-direction: row;
+    width: 100vw;
 
     /* align-items: flex-start; */
     justify-content: space-around;
@@ -69,7 +162,7 @@ $merch: #a6a9af;
 
     /* margin-left: 10vw; */
     cursor: pointer;
-    opacity: 95%;
+    opacity: 100%;
 
     /* padding: 12em; */
     /* height: auto; */
@@ -81,7 +174,7 @@ $merch: #a6a9af;
 
     /* position: fixed; */
     cursor: pointer;
-    opacity: 95%;
+
 
     /* width: 100%; */
     pointer-events: all;
@@ -89,6 +182,12 @@ $merch: #a6a9af;
     &:hover {
         transform: scale(0.9);
         transition: 1000ms;
+    }
+
+    &.opaque {
+        opacity: 1;
+        transition: 500ms;
+        color: white;
     }
 }
 
@@ -209,15 +308,15 @@ $merch: #a6a9af;
 }
 
 .scroll-prompt {
-    font-size: 5vw;
+    font-size: calc(5vw + 5vh);
     position: absolute;
     display: block;
-    color: rgba(255, 255, 255, 0.073);
+    color: rgb(255, 255, 255);
     text-align: center;
 
     /* left: calc(50vw); */
     /* margin: auto; */
-    opacity: 20%;
+    opacity: 40%;
 
     /* transform: translate(-2vw); */
     transition: 500ms;
@@ -225,31 +324,48 @@ $merch: #a6a9af;
     /* display: none; */
     cursor: pointer;
 
+    bottom: calc(50% - (5vw + 5vh) / 2);
+
     /* display: flex;c */
     /* min-width: 100%; */
 }
 
 .scroll-prompt-top {
     top: 5%;
-    left: calc(50vw);
+}
+
+.image-scroll { 
+    opacity: 5%;
 }
 
 .scroll-prompt-bottom {
     bottom: 5%;
-    left: calc(50vw);
+
+}
+.scroll-prompt-right {
+    right: 5%;
+
 }
 
-.scroll-prompt-right {
-    /* right: 5%; */
-    /* left: 95vw; */
-    opacity: 40%;
-    font-size: calc(3vw + 3vh);
-    color: rgb(255, 255, 255);
-    max-width: 20vh;
-    position: absolute;
-    right: 15vw;
-    bottom: 10vh;
+.scroll-prompt-left {
+    left: 5%;
 }
+.scroll-prompt-bottom-right {
+    bottom: 5%;
+    right: calc(5vw);
+}
+
+// .scroll-prompt-right {
+//     /* right: 5%; */
+//     /* left: 95vw; */
+//     opacity: 40%;
+//     font-size: calc(3vw + 3vh);
+//     color: rgb(255, 255, 255);
+//     max-width: 20vh;
+//     position: absolute;
+//     right: 15vw;
+//     bottom: 10vh;
+// }
 
 flex-item-4 {
     align-self: flex-end;
@@ -390,6 +506,8 @@ flex-item-5 {
 }
 
 .playButton {
+    filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.1));
+
     /* height: auto; */
     /* max-height: 100vh; */
     /* width: auto; */
@@ -398,11 +516,17 @@ flex-item-5 {
     /* display: flex; */
     /* left: 2vw; */
     /* top: 2vw; */
-    max-width: 100px;
+    position: absolute;
+    display: auto;
+    top: 10vh;
+    // right: 5vw;
+    // max-width: 100px;
     // margin-top: 10vh;
     // margin-right: 10vw;
     cursor: pointer;
     opacity: 95%;
+    // top: 5vw;
+    // display: block;
 
     /* padding: 12em; */
     /* height: auto; */
@@ -423,6 +547,9 @@ flex-item-5 {
         transition: 2000ms;
         transform: scale(110%);
         pointer-events: fill;
+        display: block;
+        position: absolute;
+        right: 5%;
 
         &:hover {
             transform: scale(95%);
@@ -478,7 +605,7 @@ flex-item-5 {
 .invisible {
     opacity: 0;
     transition: 1500ms;
-    pointer-events: none;
+    // pointer-events: none;
 
     /* position: fixed; */
 }
@@ -489,7 +616,7 @@ flex-item-5 {
     transition: 500ms;
 
     /* transition-delay: 400ms; */
-    transform: scale(150%);
+    // transform: scale(150%);
 
     &:hover {
         /* width: 10%; */
@@ -503,24 +630,48 @@ flex-item-5 {
 
 .visible {
     transition: 500ms;
+    // color: black
 }
+
+.opaque {
+    opacity: 70%;
+    transition: 500ms;
+    color: white;
+}
+
+.invisible {&:hover {
+    opacity: 100%;
+    transition: 500ms;
+}}
+
 
 .title.invisible {
     &:hover {
-        transition: 1500ms;
-        opacity: .70;
+        transition: 500ms;
+        opacity: .40;
     }
 
-    opacity: 10%;
+    &.activeSpeechBubble {
+    opacity: 70%;
+    transition: 500ms;
+    color: black;
+}
+    &.opaque {
+        opacity: 70%;
+        transition: 500ms;
+        color: white;
+    }
+
+    opacity: 0%;
     pointer-events: fill;
 
     /* display: block; */
-    transition: 1500ms;
+    transition: 500ms;
 
     /* position: absolute; */
     /* top: 2vh; */
     /* left: 2vw; */
-    transform: scale(150%);
+    transform: scale(100%);
 
     /* transition-property: opacity; */
 }

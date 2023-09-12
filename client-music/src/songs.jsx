@@ -19,131 +19,81 @@ import backgroundImage2 from './assets/background.gif'
 import merch1 from './assets/merch.png'
 import merch2 from './assets/merch2.png'
 
+// eslint-disable-next-line no-sparse-arrays
 const songs = [
 	{
-		id: 0,
-		elements: [<FeaturedLinks />, <Fader />, <Merch />],
 		data: {
-			background: backgroundImage,
 			logo: logoImage,
 			logo2: logoImage2,
-			songLink: 'https://sndup.net/wsv2/m',
-			vocalLink: 'https://sndup.net/9c5h/m',
-			featuredLinks: [
-				{
-					name: 'TikTok',
-					tag: 'tiktok',
-					link: 'https://www.tiktok.com/@lxvimusic',
-					img: <IoLogoTiktok />,
-				},
-				{
-					name: 'Instagram',
-					tag: 'instagram',
-					link: 'https://www.instagram.com/lxvimusic',
-					img: <TiSocialInstagram />,
-				},
-				{
-					name: 'Spotify',
-					tag: 'spotify',
-					link: 'https://open.spotify.com/artist/1VvdebwNf9wAPhoti1uQtn?C=',
-					img: <RiSpotifyLine />,
-				},
-				{
-					name: `Apple Music`,
-					tag: 'apple',
-					link: 'https://music.apple.com/us/artist/lxvi/990781367',
-					img: <AiOutlineApple />,
-				},
-				// {
-				// 	name: 'Merch',
-				// 	tag: 'merch',
-				// 	link: 'https://www.instagram.com/',
-				// 	img: <IoShirtOutline />,
-				// },
-			],
-			// merch: [
-			// 	{ name: 'merch1', img: merch1, link: '' },
-			// 	{ name: 'merch2', img: merch2, link: '' },
-			// ],
+			// vocalLink: 'https://sndup.net/wsv2/m',
+			songLink: 'https://storage.googleapis.com/music-microsite-visuals/9.11.23%20v2.wav',
+			name: '9.11.23',
+			// songLink: 'https://sndup.net/9c5h/m',
 		},
-	},
+	}, 
 	{
-		id: 1,
-		elements: [<FeaturedLinks />, <Fader />],
 		data: {
-			background: backgroundImage2,
 			logo: logoImage,
 			logo2: logoImage2,
-			songLink: 'https://sndup.net/xzzk/d',
-			vocalLink: 'https://sndup.net/rb6s/m',
-			featuredLinks: [
-				{
-					name: 'TikTok',
-					tag: 'tiktok',
-					link: 'https://www.tiktok.com/@lxvimusic',
-					img: <IoLogoTiktok />,
-				},
-				{
-					name: 'Instagram',
-					tag: 'instagram',
-					link: 'https://www.instagram.com/lxvimusic',
-					img: <TiSocialInstagram />,
-				},
-				{
-					name: 'Spotify',
-					tag: 'spotify',
-					link: 'https://open.spotify.com/artist/1VvdebwNf9wAPhoti1uQtn?C=',
-					img: <RiSpotifyLine />,
-				},
-				{
-					name: `Apple Music`,
-					tag: 'apple',
-					link: 'https://music.apple.com/us/artist/lxvi/990781367',
-					img: <AiOutlineApple />,
-				},
-				// {
-				// 	name: 'Merch',
-				// 	tag: 'merch',
-				// 	link: 'https://www.instagram.com/',
-				// 	img: <IoShirtOutline />,
-				// },
-			],
-			// merch: [
-			// 	{ name: 'merch1', img: merch1, link: '' },
-			// 	// { name: 'merch2', img: merch2, link: '' },
-			// ],
+			// vocalLink: 'https://sndup.net/wsv2/m',
+			songLink: 'https://storage.googleapis.com/music-microsite-visuals/8.29.23%20v6.wav',
+			name: '8.29.23',
+			// songLink: 'https://sndup.net/9c5h/m',
 		},
-	},
-	// {
-	// 	id: 1,
-	// 	data: {
-	// 		background: backgroundImage2,
-	// 		logo: logoImage,
-	// 		logo2: logoImage2,
-	// 		songLink: 'https://sndup.net/wsv2/m',
-	// 		vocalLink: 'https://sndup.net/9c5h/m',
-	// 		featuredLinks: [
-	// 			// {
-	// 			// 	name: 'Tok',
-	// 			// 	tag: 'tiktok',
-	// 			// 	link: 'https://www.tiktok.com/@lxvimusic',
-	// 			// 	img: <IoLogoTiktok />,
-	// 			// },
-	// 			// {
-	// 			// 	name: 'Insta',
-	// 			// 	tag: 'instagram',
-	// 			// 	link: 'https://www.instagram.com/lxvimusic',
-	// 			// 	img: <TiSocialInstagram />,
-	// 			// },
-	// 			// {
-	// 			// 	name: 'Spot',
-	// 			// 	tag: 'spotify',
-	// 			// 	link: 'https://open.spotify.com/artist/1VvdebwNf9wAPhoti1uQtn?C=',
-	// 			// 	img: <RiSpotifyLine />,
-	// 			// },
-	// 		],
-	// 	},
-	// },
-]
+	}, 
+	{
+		data: {
+			logo: logoImage,
+			logo2: logoImage2,
+			// vocalLink: 'https://sndup.net/wsv2/m',
+			songLink: 'https://storage.googleapis.com/music-microsite-visuals/4.29.22%201.10.wav',
+			name: '4.29.23',
+			// songLink: 'https://sndup.net/9c5h/m',
+		},
+	}, 
+	{
+		data: {
+			logo: logoImage,
+			logo2: logoImage2,
+			// vocalLink: 'https://sndup.net/wsv2/m',
+			songLink: 'https://storage.googleapis.com/music-microsite-visuals/3.6.23%202.wav',
+			name: '3.6.23',
+			// songLink: 'https://sndup.net/9c5h/m',
+		},
+	}, 
+	{
+		data: {
+			logo: logoImage,
+			logo2: logoImage2,
+			// vocalLink: 'https://sndup.net/wsv2/m',
+			songLink: 'https://storage.googleapis.com/aug23/Website/songs/3.15.23%20v7%202.wav',
+			name: '3.15.23',
+			// songLink: 'https://sndup.net/9c5h/m',
+		},
+	}, 
+	{
+		data: {
+			logo: logoImage,
+			logo2: logoImage2,
+			vocalLink: 'https://sndup.net/xzzk/d',
+			songLink: 'https://sndup.net/rb6s/m',
+			name: '3.5.20',
+			// merch: [
+				// 	{ name: 'merch1', img: merch1, link: '' },
+				// 	// { name: 'merch2', img: merch2, link: '' },
+				// ],
+			},
+		},
+		{
+			data: {
+				logo: logoImage,
+				logo2: logoImage2,
+				// vocalLink: 'https://sndup.net/wsv2/m',
+				// songLink: 'https://storage.googleapis.com/aug23/Website/songs/3.15.23%20v7%202.wav',
+				songLink: 'https://sndup.net/9c5h/m',
+				name: '1.20.20',
+			},
+		}, 
+	]
 
 export default songs

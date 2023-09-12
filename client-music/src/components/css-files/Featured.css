@@ -193,7 +193,7 @@
     text-align: center;
     /* left: calc(50vw); */
     /* margin: auto; */
-    opacity: 20%;
+    opacity: 50%;
     /* transform: translate(-2vw); */
     transition: 500ms;
     /* display: none; */
@@ -210,6 +210,11 @@
 .scroll-prompt-bottom {
     bottom: 5%;
     left: calc(50vw);
+}
+
+.scroll-prompt-bottom-right {
+    bottom: 5%;
+    left: calc(5vw);
 }
 
 .scroll-prompt-right {

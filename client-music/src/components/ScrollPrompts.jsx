@@ -3,9 +3,16 @@ import {
 	BsChevronDoubleDown,
 	BsChevronDoubleUp,
 	BsArrowLeftRight,
+	BsChevronDoubleRight,
+	BsChevronDoubleLeft,
+	BsChevronBarDown,
+	BsChevronBarUp,
+	BsChevronDown,
+	BsChevronUp,
 } from 'react-icons/bs'
 import { RiOrderPlayFill } from "react-icons/ri";
 import { NavLink } from 'react-router-dom'
+import { TbWiper } from 'react-icons/tb'
 
 
 const ScrollPrompts = ({
@@ -16,17 +23,28 @@ const ScrollPrompts = ({
 	nextSong,
 	updateFeature,
 	feature,
-	order
+	order,
+	prevBackground,
+	nextBackground,
+	isHovered,
 }) => {
 	return (
 		<>
-			<BsChevronDoubleUp
+			<BsChevronDoubleLeft
 				onClick={prevSong}
-				className={`scroll-prompt scroll-prompt-top ${visibility}`}
+				className={`scroll-prompt scroll-prompt-left ${isHovered ? 'opaque' : visibility}`}
 			/>
-			<BsChevronDoubleDown
+			<BsChevronDoubleRight
 				onClick={nextSong}
-				className={`scroll-prompt scroll-prompt-bottom ${visibility}`}
+				className={`scroll-prompt scroll-prompt-right ${isHovered ? 'opaque' : visibility}`}
+			/>
+			<BsChevronUp
+				onClick={prevBackground}
+				className={`scroll-prompt image-scroll scroll-prompt-top ${isHovered ? 'opaque' : visibility}`}
+			/>
+			<BsChevronDown
+				onClick={nextBackground}
+				className={`scroll-prompt image-scroll scroll-prompt-bottom ${isHovered ? 'opaque' : visibility}`}
 			/>
 			{/* <NavLink
 				to={next}
