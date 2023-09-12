@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkvisualizer=self.webpackChunkvisualizer||[]).push([[38],{3038:function(a,e,u){u.r(e);u(2791);var r=u(184);e.default=function(a){var e=a.featuredImage;return(0,r.jsx)("img",{className:"featured",loading:"lazy",src:e,alt:"..."})}}}]);
+//# sourceMappingURL=38.ffea42b6.chunk.js.map
