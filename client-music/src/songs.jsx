@@ -66,34 +66,34 @@ const songs = [
 			logo: logoImage,
 			logo2: logoImage2,
 			// vocalLink: 'https://sndup.net/wsv2/m',
-			songLink: 'https://storage.googleapis.com/aug23/Website/songs/3.15.23%20v7%202.wav',
+			songLink: 'https://storage.googleapis.com/music-microsite-visuals/3.15.23%20v7%202(1).wav',
 			name: '3.15.23',
 			// songLink: 'https://sndup.net/9c5h/m',
 		},
 	}, 
-	{
-		data: {
-			logo: logoImage,
-			logo2: logoImage2,
-			vocalLink: 'https://sndup.net/xzzk/d',
-			songLink: 'https://sndup.net/rb6s/m',
-			name: '3.5.20',
-			// merch: [
-				// 	{ name: 'merch1', img: merch1, link: '' },
-				// 	// { name: 'merch2', img: merch2, link: '' },
-				// ],
-			},
-		},
-		{
-			data: {
-				logo: logoImage,
-				logo2: logoImage2,
-				// vocalLink: 'https://sndup.net/wsv2/m',
-				// songLink: 'https://storage.googleapis.com/aug23/Website/songs/3.15.23%20v7%202.wav',
-				songLink: 'https://sndup.net/9c5h/m',
-				name: '1.20.20',
-			},
-		}, 
+	// {
+	// 	data: {
+	// 		logo: logoImage,
+	// 		logo2: logoImage2,
+	// 		vocalLink: 'https://sndup.net/xzzk/d',
+	// 		songLink: 'https://sndup.net/rb6s/m',
+	// 		name: '3.5.20',
+	// 		// merch: [
+	// 			// 	{ name: 'merch1', img: merch1, link: '' },
+	// 			// 	// { name: 'merch2', img: merch2, link: '' },
+	// 			// ],
+	// 		},
+	// 	},
+	// 	{
+	// 		data: {
+	// 			logo: logoImage,
+	// 			logo2: logoImage2,
+	// 			// vocalLink: 'https://sndup.net/wsv2/m',
+	// 			// songLink: 'https://storage.googleapis.com/aug23/Website/songs/3.15.23%20v7%202.wav',
+	// 			songLink: 'https://sndup.net/9c5h/m',
+	// 			name: '1.20.20',
+	// 		},
+	// 	}, 
 	]
 
 export default songs

@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BsChevronDoubleDown, BsChevronDoubleUp } from 'react-icons/bs'
 
 import './Fader.scss'
 
 const Fader = ({songVolume, visibility, setVocalVolume}) => {
+	useEffect(() => {
+		console.log(songVolume)
+	}, [songVolume]
+	)
 	return (
 		<div className='volume'>
 			<div className={`slider-container flex-item flex-item-2 ${visibility}`}>

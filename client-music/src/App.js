@@ -14,25 +14,13 @@ import tuna from 'tunajs';
 // import { Howl, Howler } from 'howler'
 import ReactHowler from 'react-howler'
 
-import ReactGA from 'react-ga'
+import ReactGA, { set } from 'react-ga'
 ReactGA.initialize('G-22X1L2K6WV')
 ReactGA.pageview(window.location.pathname + window.location.search)
 
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
 var tunaObj = new tuna(audioCtx);
-
-
-let songsList = []
-for (let i = 0; i < songs.length; i++) {
-	console.log(songs[i].data.songLink)
-	if (songs[i].data.songLink === undefined || songs[i].data.name === undefined) continue
-	songsList.push({
-    'name': songs[i].data.name,
-    'songLink': songs[i].data.songLink
-});
-}
-console.log(songsList)
 
 
 function App() {
@@ -42,12 +30,20 @@ function App() {
   const [background, setBackground] = useState(0)
   const [vocalVolume, setVocalVolume] = useState(0.5)
   const [musicVolume, setMusicVolume] = useState(.8)
+const [stoppedIntentionally, setStoppedIntentionally] = useState(false);
+	const [isPlaying, setIsPlaying] = useState(false);
+	const [songsList, setSongsList] = useState(songs);
+
 	
 	let activeClassName = "nav-active"
   useEffect(() => {}, [])
-  console.log(songs)
+//   console.log(songs)
 
 	const sourceRef = useRef(null); // Ref to keep track of the audio source node
+	const lowpassRef = useRef(null);
+
+	
+
 
 	async function loadAudioFile(url) {
 		const response = await fetch(url);
@@ -56,36 +52,150 @@ function App() {
 		return audioBuffer;
 	}
 
+	const gainEffect = useRef(null);
+
+
 	function playAudio() {
+	
 		if (sourceRef.current) {
-			sourceRef.current.stop();
+			console.log(sourceRef.current);
+				sourceRef.current.stop();
 		}
+
+		console.log('loading song')
+		console.log(song)
+		console.log(songsList[song])
+		console.log(songsList[song].songLink)
 
 		loadAudioFile(songsList[song].songLink).then((audioBuffer) => {
 			const source = audioCtx.createBufferSource();
+			// source.onended = function () {
+			// 	playAudio(); // play again when audio finishes
+			// };
+			source.loop = true;  // Loop the song
+
+
+			source.onended = function () {
+				console.log('stoppedIntentionally')
+				console.log(stoppedIntentionally)
+				if (stoppedIntentionally) {
+					pauseAudio(); // Stop the current song
+					// sourceRef.current.stop();
+					// sourceRef.current = null;
+				} else {
+					// playAudio();  // Replay the current song
+				}
+			};
+
 			source.buffer = audioBuffer;
 			sourceRef.current = source;
 
-			const gain = new tunaObj.Gain({
+			// Create the Lowpass filter:
+			const lowpass = new tunaObj.Filter({
+				frequency: 1500,
+				Q: 2,
+				gain: 0,
+				filterType: "lowpass",
+				bypass: 0
+			});
+			// lowpassRef.current = new tunaObj.Filter({
+			// 	frequency: 2000,
+			// 	Q: 1,
+			// 	gain: 5,
+			// 	filterType: "lowpass",
+			// 	bypass: 0
+			// });
+
+
+			const bitcrusher = new tunaObj.Bitcrusher({
+				bits: 12,          //1 to 16
+				normfreq: 1,    //0 to 1
+				bufferSize: 512  //256 to 16384
+			});
+
+			var chorus = new tunaObj.Chorus({
+				rate: 1.5,
+				feedback: 0.4,
+				depth: 0.7,
+				delay: 0.0045,
+				bypass: false
+			});
+
+			var tremolo = new tunaObj.Tremolo({
+				intensity: 0.3,
+				rate: 0.5,
+				stereoPhase: 0,
+				bypass: false
+			});
+
+			var overdrive = new tunaObj.Overdrive({
+				outputGain: 0.5,
+				drive: 0.7,
+				curveAmount: 1,
+				algorithmIndex: 0,
+				bypass: false
+			});
+
+			gainEffect.current = new tunaObj.Gain({
 				gain: vocalVolume
 			});
 
-			source.connect(gain);
-			gain.connect(audioCtx.destination);
+			
+			
+			
+
+
+			source.connect(lowpass.input);
+			lowpass.connect(bitcrusher.input);
+
+			bitcrusher.connect(gainEffect.current.input);
+			gainEffect.current.connect(audioCtx.destination);
 
 			source.start();
 		});
+		setIsPlaying(true);
+
 	}
 
+	function pauseAudio() {
+		if (sourceRef.current) {
+			sourceRef.current.stop();
+		}
+		setIsPlaying(false);
+	}
 	useEffect(() => {
-		if (playing) {
-			playAudio();
-		} else if (sourceRef.current) {
+		if (sourceRef.current) {
 			sourceRef.current.stop();
 			sourceRef.current = null;
 		}
-	}, [playing, song]);
 
+	}, [song]);
+
+	useEffect(() => {
+		console.log('SONG CHANGED')
+		console.log(song)
+		// console.log(songsList[song])
+	}, [song])
+
+	useEffect(() => {
+		if (lowpassRef.current) {
+			lowpassRef.current.gain.value = vocalVolume;
+		}
+	}, [vocalVolume]);
+
+	useEffect(() => {
+		let tempSongsList = [];
+
+			for (let i = 0; i < songs.length; i++) {
+			console.log(songs[i].data.songLink)
+			if (songs[i].data.songLink === undefined || songs[i].data.name === undefined) continue
+			tempSongsList.push({
+				'name': songs[i].data.name,
+				'songLink': songs[i].data.songLink
+			});
+			setSongsList(tempSongsList);
+		}
+	}, [songs])
 
 	function handleUserInteraction() {
 		if (audioCtx.state === 'suspended') {
@@ -98,6 +208,13 @@ function App() {
 		// ... other logic
 	}
 
+	
+
+	useEffect(() => {
+		if (gainEffect.current) {
+			gainEffect.current.gain.value = vocalVolume;
+		}	
+	}, [vocalVolume]);
 
   const howlRef = useRef(null);
 
@@ -173,6 +290,7 @@ function App() {
 				/> */}
 				<Featured
 					artistName={artistName}
+				    setStoppedIntentionally={setStoppedIntentionally}
 					backgrounds={backgrounds}
 					song={song}
 					songsList={songsList}
@@ -185,6 +303,9 @@ function App() {
 					setVocalVolume={setVocalVolume}
 					background={background}
 					setBackground={setBackground}
+				  playAudio={playAudio}
+				  sourceRef={sourceRef}
+				  pauseAudio={pauseAudio}	
 				/>
 				{/* <div className='volume'>
 				<label>

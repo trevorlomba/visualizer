@@ -1,7 +1,7 @@
 [
     {
-        "origin": ["http://localhost"],
-        "responseHeader": ["Content-Type"],
+        "origin": ["http://localhost:3000", "https://trevorlomba.github.io/visualizer/"],
+        "responseHeader": ["*"],
         "method": ["GET", "HEAD", "DELETE"],
         "maxAgeSeconds": 3600
     }

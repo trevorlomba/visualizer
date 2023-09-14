@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useCallback } from 'react'
 import './Featured.scss'
 import { Routes, Route } from 'react-router-dom'
 import { BrowserRouter, NavLink } from 'react-router-dom'
@@ -22,6 +22,7 @@ const Featured = ({
 	artistName,
 	playing,
 	setPlaying,
+	setStoppedIntentionally,
 	song,
 	setSong,
 	vocalVolume,
@@ -29,7 +30,11 @@ const Featured = ({
 	songsList, 
 	background,
 	setBackground,
-	backgrounds
+	backgrounds,
+	playAudio,
+	sourceRef,
+	stoppedIntentionally,
+	pauseAudio,
 }) => {
 	let featuredImage = backgrounds[background]
 	let logoImage = songs[0].data.logo
@@ -41,27 +46,66 @@ const Featured = ({
 	const [activeSpeechBubble, setActiveSpeechBubble] = useState(false)
 	const [mouseIsMoving, setMouseIsMoving] = useState(false)
 	const movementTimeoutRef = useRef(null);
-	// console.log(song)
+	console.log('SONG IS')
+	console.log(song)
 
 	const prevSong = () => {
-		// prevBackground()
-		if (song < 1) {
-			const newSong = songs.length - 1
-			setSong(newSong)
-		} else {
-			setSong((prevState) => prevState - 1)
-		}
-	}
-	const nextSong = () => {
-		// nextBackground()
-		console.log(songsList)
+		console.log('SONG IS (PREV)')
 		console.log(song)
-		if (song === songsList.length - 1) {
-			const newSong = 0
-			setSong(newSong)
-		} else {
-			setSong((prevState) => prevState + 1)
+		setStoppedIntentionally(true);
+		pauseAudio();
+		setPlaying(false);
+
+		// Check if it's the first song
+		// if (song === 0) {
+		// 	const newSong = songsList.length - 1;
+		// 	setSong(newSong);
+		// 	console.log(songsList)
+		// 	console.log('Song is the first one, going to the last one');
+		// } else 
+		// if (song === songs.length - 1) 
+		if (song === 0) {
+			console.log('SONG IS 0') }
+			else {
+				console.log('SONG IS NOT 0')
+			}
+		setSong(prevSongValue => {
+			if (prevSongValue === 0) {
+				return songs.length - 1;
+			} else {
+				return prevSongValue - 1;
+			}
+		});
+
+		setPlaying(true);
+	}
+
+	const nextSong = () => {
+
+		console.log('SONG IS')
+		console.log(song)
+
+		setStoppedIntentionally(true);
+		pauseAudio();
+		setPlaying(false);
+		console.log(songs.length)
+		console.log(songs)
+		console.log(song)
+		if (song === 0) {
+			console.log('SONG IS 0')
 		}
+		else {
+			console.log('SONG IS NOT 0')
+		}
+		setSong(prevSongValue => {
+			if (prevSongValue === songs.length - 1) {
+				return 0;
+			} else {
+				return prevSongValue + 1;
+			}
+		});
+		setPlaying(true);
+		console.log(song)
 	}
 	const prevBackground = () => {
 		if (background < 1) {
@@ -88,6 +132,9 @@ const Featured = ({
 	const togglePlaying = () => {
 		setPlaying((prevState) => !prevState)
 	}
+
+	const throttledTogglePlaying = useCallback(throttle(togglePlaying, 100), []);
+
 	const visibility = visible ? 'visible' : 'invisible'
 	let activeClassName = 'nav-active'
 	const order = ['', 'mix', 'merch']
@@ -102,11 +149,28 @@ const Featured = ({
 		}
 	}
 
+	function throttle(func, delay) {
+		let lastCall = 0;
+		return function (...args) {
+			const now = new Date().getTime();
+			if (now - lastCall < delay) {
+				return;
+			}
+			lastCall = now;
+			return func(...args);
+		};
+	}
+
+	const throttledNextSong = useCallback(throttle(nextSong, 200), []);
+	const throttledPrevSong = useCallback(throttle(prevSong, 200), []);
 	useEffect(() => {
 		console.log(isHovered)
 	}, [isHovered])
 
 	useEffect(() => {
+		console.log('setting song name')
+		console.log(song)
+		console.log(songs)
 		setSongName(songs[song].data.name)
 	}, [song])
 
@@ -123,6 +187,14 @@ const Featured = ({
 		// Cleanup function to clear the timeout if this effect runs again.
 		return () => clearTimeout(timeoutId);
 	}, [songName]);
+
+	useEffect(() => {
+		if (playing) {
+			playAudio()
+		} else {
+			pauseAudio();
+		}
+	}, [song, playing]);
 
 	useEffect(() => {
 		const handleMouseMove = () => {
@@ -161,10 +233,10 @@ const Featured = ({
 			}}>
 			<ScrollPrompts
 				visibility={visibility}
-				prevSong={prevSong}
+				prevSong={throttledPrevSong}
 				prevBackground={prevBackground}
 				nextBackground={nextBackground}
-				nextSong={nextSong}
+				nextSong={throttledNextSong}
 				activeClassName={activeClassName}
 				next={next}
 				updateFeature={updateFeature}
@@ -215,14 +287,14 @@ const Featured = ({
 				{/* <div className='flex-item flex-item-3'>
 				
 			</div> */}
-				<div className={`playButton ${isHovered ? ' opaque' : visibility}`} onClick={togglePlaying}>
+				<div className={`playButton ${isHovered ? ' opaque' : visibility}`} onClick={throttledTogglePlaying}>
 					<div
 						className={`${playing ? 'pause' : 'play'}`} >
 						{!playing ? <AiFillPlayCircle /> : <AiFillPauseCircle />}
 					</div>
 				</div>
 		</div>
-			{/* <Form /> */}
+			<Form />
 
 		</>
 	)
