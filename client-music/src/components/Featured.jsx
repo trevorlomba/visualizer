@@ -294,8 +294,6 @@ const Featured = ({
 					</div>
 				</div>
 		</div>
-			<Form />
-
 		</>
 	)
 }

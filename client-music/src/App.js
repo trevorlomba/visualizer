@@ -324,9 +324,7 @@ const [stoppedIntentionally, setStoppedIntentionally] = useState(false);
 					</span>
 				</label>
 			</div> */}
-			  <button onClick={() => setPlaying((prev) => !prev)}>
-				  Toggle Audio
-			  </button>
+			  
 			</div>
 		</BrowserRouter>
 	)
