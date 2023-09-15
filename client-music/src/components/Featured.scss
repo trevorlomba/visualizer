@@ -56,7 +56,7 @@ $merch: #a6a9af;
         &.opaque {
         opacity: .7; /* Show bubble when logo is hovered */
         color: black;
-        transition: 500ms;
+        transition: 1000ms;
     }
     }
     &.activeSpeechBubble {
@@ -332,6 +332,11 @@ $merch: #a6a9af;
 
 .scroll-prompt-top {
     top: 5%;
+    &.opaque {
+        opacity: 30%;
+        transition: 500ms;
+        color: white;
+    }
 }
 
 .image-scroll { 
@@ -340,6 +345,11 @@ $merch: #a6a9af;
 
 .scroll-prompt-bottom {
     bottom: 5%;
+        &.opaque {
+        opacity: 30%;
+        transition: 500ms;
+        color: white;
+    }
 
 }
 .scroll-prompt-right {
@@ -714,4 +724,8 @@ flex-item-5 {
 .nav-active {
     color: grey;
     font-weight: bold;
+}
+
+body.hide-cursor {
+    cursor: none;
 }

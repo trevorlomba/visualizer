@@ -34,7 +34,16 @@ const [stoppedIntentionally, setStoppedIntentionally] = useState(false);
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [songsList, setSongsList] = useState(songs);
 
-	
+	let timeout;
+	document.addEventListener('mousemove', function () {
+		clearTimeout(timeout);
+		document.body.classList.remove('hide-cursor');
+
+		timeout = setTimeout(function () {
+			document.body.classList.add('hide-cursor');
+		}, 1000); 
+	});
+
 	let activeClassName = "nav-active"
   useEffect(() => {}, [])
 //   console.log(songs)

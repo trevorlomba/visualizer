@@ -208,7 +208,7 @@ const Featured = ({
 			// Set a new timeout to reset mouseIsMoving after 3 seconds
 			movementTimeoutRef.current = setTimeout(() => {
 				setMouseIsMoving(false);
-			}, 3000);
+			}, 1000);
 		};
 
 		window.addEventListener('mousemove', handleMouseMove);
@@ -243,6 +243,7 @@ const Featured = ({
 				feature={feature}
 				order={order}
 				isHovered={isHovered}
+				mouseIsMoving={mouseIsMoving}
 			/>
 				{/* <div className='flex-item flex-item-1' ></div> */}
 				<div className='logo' onMouseEnter={() => setIsHovered(true)}

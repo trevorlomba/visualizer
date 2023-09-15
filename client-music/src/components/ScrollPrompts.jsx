@@ -27,24 +27,25 @@ const ScrollPrompts = ({
 	prevBackground,
 	nextBackground,
 	isHovered,
+	mouseIsMoving
 }) => {
 	return (
 		<>
 			<BsChevronDoubleLeft
 				onClick={prevSong}
-				className={`scroll-prompt scroll-prompt-left ${isHovered ? 'opaque' : visibility}`}
+				className={`scroll-prompt scroll-prompt-left ${mouseIsMoving  ? 'opaque' : visibility}`}
 			/>
 			<BsChevronDoubleRight
 				onClick={nextSong}
-				className={`scroll-prompt scroll-prompt-right ${isHovered ? 'opaque' : visibility}`}
+				className={`scroll-prompt scroll-prompt-right ${mouseIsMoving  ? 'opaque' : visibility}`}
 			/>
 			<BsChevronUp
 				onClick={prevBackground}
-				className={`scroll-prompt image-scroll scroll-prompt-top ${isHovered ? 'opaque' : visibility}`}
+				className={`scroll-prompt image-scroll scroll-prompt-top ${mouseIsMoving  ? 'opaque' : visibility}`}
 			/>
 			<BsChevronDown
 				onClick={nextBackground}
-				className={`scroll-prompt image-scroll scroll-prompt-bottom ${isHovered ? 'opaque' : visibility}`}
+				className={`scroll-prompt image-scroll scroll-prompt-bottom ${mouseIsMoving  ? 'opaque' : visibility}`}
 			/>
 			{/* <NavLink
 				to={next}
