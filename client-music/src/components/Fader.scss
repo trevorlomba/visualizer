@@ -2,7 +2,7 @@ input[type=range] {
     -webkit-appearance: none;
 
     /* Hides the slider so that custom slider can be made */
-    width: 40vw;
+    // width: 40vw;
 
     /* Specific width is required for Firefox. */
     background: transparent;
@@ -128,3 +128,16 @@ input[type=range] {
 /* All the same stuff for Firefox */
 
 /* All the same stuff for IE */
+
+.toggle-filters {
+    cursor: pointer; // To indicate it's clickable
+    margin: 10px 0; // Some spacing
+    color: #ffffff2c; // White text
+    // Add any additional styles as needed
+    
+    &:hover {
+        color: #fff;
+        // Add any additional styles as needed
+        transition: all 0.3s ease-in-out;
+    }
+}

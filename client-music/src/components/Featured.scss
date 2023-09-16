@@ -534,9 +534,13 @@ flex-item-5 {
     // margin-top: 10vh;
     // margin-right: 10vw;
     cursor: pointer;
-    opacity: 95%;
+    opacity: 80%;
     // top: 5vw;
     // display: block;
+    &:hover {
+        transition: 500ms;
+        opacity: 100%;
+    }
 
     /* padding: 12em; */
     /* height: auto; */
@@ -577,6 +581,7 @@ flex-item-5 {
 
 .pause {
     color: #ffffff;
+    transition: 200ms;
 
     &:hover {
         color: rgb(255, 255, 255);
@@ -600,7 +605,7 @@ flex-item-5 {
 }
 
 .slider-container {
-    max-width: 33vw;
+    max-width: 15vw;
 
     /* position: fixed; */
     /* left: 50%; */
@@ -728,4 +733,29 @@ flex-item-5 {
 
 body.hide-cursor {
     cursor: none;
+}
+
+.volume {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; // Adds space between each slider
+}
+
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%; // Ensure the container takes up full width
+
+    &.hidden { // Assuming you have some hidden class for visibility prop
+        display: none;
+    }
+}
+
+.slider-label {
+    margin-bottom: 10px; // Spacing between label and the slider
+    font-weight: bold;
+    color: white;
+    font-size: calc(1vw + 1.5vh);
 }

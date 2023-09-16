@@ -28,7 +28,9 @@ function App() {
   const [playing, setPlaying] = useState(false)
   const [song, setSong] = useState(0)
   const [background, setBackground] = useState(0)
-  const [vocalVolume, setVocalVolume] = useState(0.5)
+  const [vocalVolume, setVocalVolume] = useState(0.8)
+  const [highPassValue, setHighPassValue] = useState(0)
+  const [lowPassValue, setLowPassValue] = useState(1)
   const [musicVolume, setMusicVolume] = useState(.8)
 const [stoppedIntentionally, setStoppedIntentionally] = useState(false);
 	const [isPlaying, setIsPlaying] = useState(false);
@@ -62,6 +64,8 @@ const [stoppedIntentionally, setStoppedIntentionally] = useState(false);
 	}
 
 	const gainEffect = useRef(null);
+	const highPassEffect = useRef(null);
+	const lowPassEffect = useRef(null);
 
 
 	function playAudio() {
@@ -92,7 +96,7 @@ const [stoppedIntentionally, setStoppedIntentionally] = useState(false);
 					// sourceRef.current.stop();
 					// sourceRef.current = null;
 				} else {
-					// playAudio();  // Replay the current song
+				// playAudio();  // Replay the current song
 				}
 			};
 
@@ -101,8 +105,8 @@ const [stoppedIntentionally, setStoppedIntentionally] = useState(false);
 
 			// Create the Lowpass filter:
 			const lowpass = new tunaObj.Filter({
-				frequency: 1500,
-				Q: 2,
+				frequency: 1550,
+				Q: 1,
 				gain: 0,
 				filterType: "lowpass",
 				bypass: 0
@@ -146,9 +150,25 @@ const [stoppedIntentionally, setStoppedIntentionally] = useState(false);
 			});
 
 			gainEffect.current = new tunaObj.Gain({
-				gain: vocalVolume
+				gain: vocalVolume	
 			});
 
+
+			highPassEffect.current = new tunaObj.Filter({
+				frequency: 1,
+				Q: 1,
+				gain: 0,
+				filterType: "highpass",
+				bypass: 0
+			});
+
+			lowPassEffect.current = new tunaObj.Filter({
+				frequency: 2400,
+				Q: 2,
+				gain: 0,
+				filterType: "lowpass",
+				bypass: 0
+			});
 			
 			
 			
@@ -158,7 +178,9 @@ const [stoppedIntentionally, setStoppedIntentionally] = useState(false);
 			lowpass.connect(bitcrusher.input);
 
 			bitcrusher.connect(gainEffect.current.input);
-			gainEffect.current.connect(audioCtx.destination);
+			gainEffect.current.connect(highPassEffect.current.input);
+			highPassEffect.current.connect(lowPassEffect.current.input);
+			lowPassEffect.current.connect(audioCtx.destination);
 
 			source.start();
 		});
@@ -180,11 +202,11 @@ const [stoppedIntentionally, setStoppedIntentionally] = useState(false);
 
 	}, [song]);
 
-	useEffect(() => {
-		console.log('SONG CHANGED')
-		console.log(song)
-		// console.log(songsList[song])
-	}, [song])
+	// useEffect(() => {
+	// 	console.log('SONG CHANGED')
+	// 	console.log(song)
+	// 	// console.log(songsList[song])
+	// }, [song])
 
 	useEffect(() => {
 		if (lowpassRef.current) {
@@ -224,6 +246,16 @@ const [stoppedIntentionally, setStoppedIntentionally] = useState(false);
 			gainEffect.current.gain.value = vocalVolume;
 		}	
 	}, [vocalVolume]);
+	useEffect(() => {
+		if (highPassEffect.current) {
+			highPassEffect.current.frequency.value = highPassValue * 500;
+		}	
+	}, [highPassValue]);
+	useEffect(() => {
+		if (lowPassEffect.current) {
+			lowPassEffect.current.frequency.value = lowPassValue * 2400;
+		}	
+	}, [lowPassValue]);
 
   const howlRef = useRef(null);
 
@@ -310,6 +342,10 @@ const [stoppedIntentionally, setStoppedIntentionally] = useState(false);
 					setPlaying={setPlaying}
 					vocalVolume={vocalVolume}
 					setVocalVolume={setVocalVolume}
+					highPassValue={highPassValue}
+					setHighPassValue={setHighPassValue}
+					lowPassValue={lowPassValue}
+					setLowPassValue={setLowPassValue}
 					background={background}
 					setBackground={setBackground}
 				  playAudio={playAudio}
@@ -333,7 +369,8 @@ const [stoppedIntentionally, setStoppedIntentionally] = useState(false);
 					</span>
 				</label>
 			</div> */}
-			  
+			{/* div with color styling white and the value of HighPassValue*/}
+			
 			</div>
 		</BrowserRouter>
 	)

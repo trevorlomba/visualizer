@@ -27,6 +27,10 @@ const Featured = ({
 	setSong,
 	vocalVolume,
 	setVocalVolume,
+	highPassValue,
+	setHighPassValue,
+	lowPassValue,
+	setLowPassValue,
 	songsList, 
 	background,
 	setBackground,
@@ -46,6 +50,7 @@ const Featured = ({
 	const [activeSpeechBubble, setActiveSpeechBubble] = useState(false)
 	const [mouseIsMoving, setMouseIsMoving] = useState(false)
 	const movementTimeoutRef = useRef(null);
+
 	console.log('SONG IS')
 	console.log(song)
 
@@ -271,7 +276,11 @@ const Featured = ({
 							<Fader
 								songVolume={vocalVolume}
 								setVocalVolume={setVocalVolume}
-								className = {isHovered ? ' opaque' : visibility}
+								className = {visibility}
+								highPassValue={highPassValue}
+								setHighPassValue={setHighPassValue}
+								lowPassValue={lowPassValue}
+								setLowPassValue={setLowPassValue}
 							/>
 						}
 					/>
@@ -288,7 +297,7 @@ const Featured = ({
 				{/* <div className='flex-item flex-item-3'>
 				
 			</div> */}
-				<div className={`playButton ${isHovered ? ' opaque' : visibility}`} onClick={throttledTogglePlaying}>
+				<div className={`playButton ${mouseIsMoving ? ' opaque' : visibility}`} onClick={throttledTogglePlaying}>
 					<div
 						className={`${playing ? 'pause' : 'play'}`} >
 						{!playing ? <AiFillPlayCircle /> : <AiFillPauseCircle />}
