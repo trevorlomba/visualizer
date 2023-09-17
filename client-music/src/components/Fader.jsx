@@ -17,7 +17,7 @@ const Fader = ({ songVolume, visibility, setVocalVolume,
 				<input
 					type='range'
 					min='0'
-					max='1'
+					max='2'
 					step='.05'
 					value={songVolume}
 					onChange={(e) => setVocalVolume(e.target.value)}

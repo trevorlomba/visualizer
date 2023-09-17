@@ -28,7 +28,7 @@ function App() {
   const [playing, setPlaying] = useState(false)
   const [song, setSong] = useState(0)
   const [background, setBackground] = useState(0)
-  const [vocalVolume, setVocalVolume] = useState(0.8)
+  const [vocalVolume, setVocalVolume] = useState(1.2)
   const [highPassValue, setHighPassValue] = useState(0)
   const [lowPassValue, setLowPassValue] = useState(1)
   const [musicVolume, setMusicVolume] = useState(.8)
