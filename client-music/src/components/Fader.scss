@@ -134,6 +134,11 @@ input[type=range] {
     margin: 10px 0; // Some spacing
     color: #ffffff2c; // White text
     // Add any additional styles as needed
+    opacity: 40%;
+    // place to the bottom right of the slider
+
+    width: 300%;
+
     
     &:hover {
         color: #fff;

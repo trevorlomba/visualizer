@@ -28,8 +28,8 @@ function App() {
   const [playing, setPlaying] = useState(false)
   const [song, setSong] = useState(0)
   const [background, setBackground] = useState(0)
-  const [vocalVolume, setVocalVolume] = useState(1.2)
-  const [highPassValue, setHighPassValue] = useState(0)
+  const [vocalVolume, setVocalVolume] = useState(1)
+  const [highPassValue, setHighPassValue] = useState(.01)
   const [lowPassValue, setLowPassValue] = useState(1)
   const [musicVolume, setMusicVolume] = useState(.8)
 const [stoppedIntentionally, setStoppedIntentionally] = useState(false);
@@ -71,14 +71,14 @@ const [stoppedIntentionally, setStoppedIntentionally] = useState(false);
 	function playAudio() {
 	
 		if (sourceRef.current) {
-			console.log(sourceRef.current);
+			// console.log(sourceRef.current);
 				sourceRef.current.stop();
 		}
 
-		console.log('loading song')
-		console.log(song)
-		console.log(songsList[song])
-		console.log(songsList[song].songLink)
+		// console.log('loading song')
+		// console.log(song)
+		// console.log(songsList[song])
+		// console.log(songsList[song].songLink)
 
 		loadAudioFile(songsList[song].songLink).then((audioBuffer) => {
 			const source = audioCtx.createBufferSource();
@@ -89,8 +89,8 @@ const [stoppedIntentionally, setStoppedIntentionally] = useState(false);
 
 
 			source.onended = function () {
-				console.log('stoppedIntentionally')
-				console.log(stoppedIntentionally)
+				// console.log('stoppedIntentionally')
+				// console.log(stoppedIntentionally)
 				if (stoppedIntentionally) {
 					pauseAudio(); // Stop the current song
 					// sourceRef.current.stop();
@@ -163,7 +163,7 @@ const [stoppedIntentionally, setStoppedIntentionally] = useState(false);
 			});
 
 			lowPassEffect.current = new tunaObj.Filter({
-				frequency: 2400,
+				frequency: lowPassValue * 2400,
 				Q: 2,
 				gain: 0,
 				filterType: "lowpass",
@@ -203,9 +203,9 @@ const [stoppedIntentionally, setStoppedIntentionally] = useState(false);
 	}, [song]);
 
 	// useEffect(() => {
-	// 	console.log('SONG CHANGED')
-	// 	console.log(song)
-	// 	// console.log(songsList[song])
+		// console.log('SONG CHANGED')
+		// console.log(song)
+		// console.log(songsList[song])
 	// }, [song])
 
 	useEffect(() => {
@@ -218,7 +218,7 @@ const [stoppedIntentionally, setStoppedIntentionally] = useState(false);
 		let tempSongsList = [];
 
 			for (let i = 0; i < songs.length; i++) {
-			console.log(songs[i].data.songLink)
+			// console.log(songs[i].data.songLink)
 			if (songs[i].data.songLink === undefined || songs[i].data.name === undefined) continue
 			tempSongsList.push({
 				'name': songs[i].data.name,
@@ -248,12 +248,14 @@ const [stoppedIntentionally, setStoppedIntentionally] = useState(false);
 	}, [vocalVolume]);
 	useEffect(() => {
 		if (highPassEffect.current) {
-			highPassEffect.current.frequency.value = highPassValue * 500;
+			// console.log(highPassEffect.current.frequency.value)
+			highPassEffect.current.frequency.value = highPassValue * 2400;
+			// console.log(highPassEffect.current.frequency.value)
 		}	
 	}, [highPassValue]);
 	useEffect(() => {
 		if (lowPassEffect.current) {
-			lowPassEffect.current.frequency.value = lowPassValue * 2400;
+			lowPassEffect.current.frequency.value = lowPassValue * 5000;
 		}	
 	}, [lowPassValue]);
 
@@ -277,7 +279,7 @@ const [stoppedIntentionally, setStoppedIntentionally] = useState(false);
 
 			// Disconnect Howler's masterGain from destination and connect it to gain
 			console.log(howlerSound._sounds[0]._node)
-			console.log(howlerSound)
+			// console.log(howlerSound)
 			howlerSound._sounds[0]._node.disconnect();
 			howlerSound._sounds[0]._node.connect(gain);
 
@@ -292,7 +294,7 @@ const [stoppedIntentionally, setStoppedIntentionally] = useState(false);
 
 			// Define the function we want to execute once the sound is loaded
 			const onSoundLoad = () => {
-				console.log("Sound loaded!");
+				// console.log("Sound loaded!");
 				applyTunaEffect(howlerSound);
 			};
 

@@ -1,27 +1,59 @@
 import React, { useEffect, useState } from "react";
 import { BsChevronDoubleDown, BsChevronDoubleUp, BsChevronUp, BsChevronDown } from 'react-icons/bs';
+import {GrPowerReset} from 'react-icons/gr';
+import { BiReset } from 'react-icons/bi';
 import './Fader.scss';
 
 const Fader = ({ songVolume, visibility, setVocalVolume,
 	highPassValue, setHighPassValue, lowPassValue, setLowPassValue }) => {
-	const [showFilters, setShowFilters] = useState(false);
+	const [showFilters, setShowFilters] = useState(true);
+	const [isDragging, setIsDragging] = useState(false);
 
 	useEffect(() => {
-		console.log(songVolume);
-	}, [songVolume]);
+		const adjustValueByMouse = (e) => {
+			if (isDragging) {
+				const newValue = songVolume + e.movementX * 0.01; // Adjust the 0.01 multiplier as needed
+				if (newValue >= 0 && newValue <= 2) {
+					setVocalVolume(newValue);
+				}
+			}
+		};
+
+		const stopDrag = () => {
+			if (isDragging) {
+				setIsDragging(false);
+			}
+		};
+
+		window.addEventListener('mousemove', adjustValueByMouse);
+		window.addEventListener('mouseup', stopDrag);
+
+		return () => {
+			window.removeEventListener('mousemove', adjustValueByMouse);
+			window.removeEventListener('mouseup', stopDrag);
+		};
+	}, [isDragging, songVolume, setVocalVolume]);
+
 
 	return (
 		<div className='volume'>
 			<div className={`slider-container ${visibility}`}>
-				<label className='slider-label'>Gain</label>
-				<input
-					type='range'
-					min='0'
-					max='2'
-					step='.05'
-					value={songVolume}
-					onChange={(e) => setVocalVolume(e.target.value)}
-				/>
+				<div className={`slider-container ${visibility}`}>
+					<label
+						className='slider-label reset'
+					
+						onDoubleClick={() => setVocalVolume(1.2)}
+					>
+						Gain
+					</label>
+					<input
+						type='range'
+						min='0'
+						max='2'
+						step='.05'
+						value={songVolume}
+						onChange={(e) => setVocalVolume(e.target.value)}
+					/></div>
 			{showFilters ? '' : <div className="toggle-filters" onClick={() => setShowFilters(!showFilters)}>
 				{showFilters ? <BsChevronUp /> : <BsChevronDown />}
 			</div>}
@@ -29,7 +61,7 @@ const Fader = ({ songVolume, visibility, setVocalVolume,
 			{showFilters && (
 				<>
 					<div className={`slider-container ${visibility}`}>
-						<label className='slider-label'>Higpass</label>
+						<label className='slider-label reset' onDoubleClick={() => setHighPassValue(0)} >Higpass </label>
 						<input
 							type='range'
 							min='0'
@@ -40,7 +72,7 @@ const Fader = ({ songVolume, visibility, setVocalVolume,
 						/>
 					</div>
 					<div className={`slider-container ${visibility}`}>
-						<label className='slider-label'>Lowpass</label>
+						<label className='slider-label reset' onDoubleClick={() => setLowPassValue(1)} >Lowpass </label>
 						<input
 							type='range'
 							min='0'

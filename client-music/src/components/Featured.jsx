@@ -51,12 +51,12 @@ const Featured = ({
 	const [mouseIsMoving, setMouseIsMoving] = useState(false)
 	const movementTimeoutRef = useRef(null);
 
-	console.log('SONG IS')
-	console.log(song)
+	// console.log('SONG IS')
+	// console.log(song)
 
 	const prevSong = () => {
-		console.log('SONG IS (PREV)')
-		console.log(song)
+		// console.log('SONG IS (PREV)')
+		// console.log(song)
 		setStoppedIntentionally(true);
 		pauseAudio();
 		setPlaying(false);
@@ -65,15 +65,15 @@ const Featured = ({
 		// if (song === 0) {
 		// 	const newSong = songsList.length - 1;
 		// 	setSong(newSong);
-		// 	console.log(songsList)
-		// 	console.log('Song is the first one, going to the last one');
+			console.log(songsList)
+			console.log('Song is the first one, going to the last one');
 		// } else 
 		// if (song === songs.length - 1) 
-		if (song === 0) {
-			console.log('SONG IS 0') }
-			else {
-				console.log('SONG IS NOT 0')
-			}
+		// if (song === 0) {
+			// console.log('SONG IS 0') }
+			// else {
+			// 	// console.log('SONG IS NOT 0')
+			// }
 		setSong(prevSongValue => {
 			if (prevSongValue === 0) {
 				return songs.length - 1;
@@ -87,20 +87,20 @@ const Featured = ({
 
 	const nextSong = () => {
 
-		console.log('SONG IS')
-		console.log(song)
+		// console.log('SONG IS')
+		// console.log(song)
 
 		setStoppedIntentionally(true);
 		pauseAudio();
 		setPlaying(false);
-		console.log(songs.length)
-		console.log(songs)
-		console.log(song)
+		// console.log(songs.length)
+		// console.log(songs)
+		// console.log(song)
 		if (song === 0) {
-			console.log('SONG IS 0')
+			// console.log('SONG IS 0')
 		}
 		else {
-			console.log('SONG IS NOT 0')
+			// console.log('SONG IS NOT 0')
 		}
 		setSong(prevSongValue => {
 			if (prevSongValue === songs.length - 1) {
@@ -110,7 +110,7 @@ const Featured = ({
 			}
 		});
 		setPlaying(true);
-		console.log(song)
+		// console.log(song)
 	}
 	const prevBackground = () => {
 		if (background < 1) {
@@ -138,7 +138,7 @@ const Featured = ({
 		setPlaying((prevState) => !prevState)
 	}
 
-	const throttledTogglePlaying = useCallback(throttle(togglePlaying, 100), []);
+	const throttledTogglePlaying = useCallback(throttle(togglePlaying, 500), []);
 
 	const visibility = visible ? 'visible' : 'invisible'
 	let activeClassName = 'nav-active'
@@ -166,16 +166,16 @@ const Featured = ({
 		};
 	}
 
-	const throttledNextSong = useCallback(throttle(nextSong, 200), []);
-	const throttledPrevSong = useCallback(throttle(prevSong, 200), []);
+	const throttledNextSong = useCallback(throttle(nextSong, 1000), []);
+	const throttledPrevSong = useCallback(throttle(prevSong, 1000), []);
 	useEffect(() => {
-		console.log(isHovered)
+		// console.log(isHovered)
 	}, [isHovered])
 
 	useEffect(() => {
-		console.log('setting song name')
-		console.log(song)
-		console.log(songs)
+		// console.log('setting song name')
+		// console.log(song)
+		// console.log(songs)
 		setSongName(songs[song].data.name)
 	}, [song])
 

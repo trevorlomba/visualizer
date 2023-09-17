@@ -758,4 +758,25 @@ body.hide-cursor {
     font-weight: bold;
     color: white;
     font-size: calc(1vw + 1.5vh);
+    width: 100vw;
+    transform: matrix(10px 0 0 10px, 0, 0);
+    // prevent text from being selected
+    user-select: none;
+    
+}
+
+.reset {
+    color: white!important;
+    font-size: 80%;
+    opacity: 90%;
+    position: relative;
+    bottom: 5px;
+    // &:hover {
+    //     opacity: 100%;
+    //     transition: all 0.3s ease-in-out;
+    //     }
+    cursor: pointer;
+
+    // margin-right: .3em;
+    // background-color: white;
 }
