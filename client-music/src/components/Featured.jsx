@@ -60,6 +60,8 @@ const Featured = ({
 		setStoppedIntentionally(true);
 		pauseAudio();
 		setPlaying(false);
+		setHighPassValue(.01)
+		setLowPassValue(1)
 
 		// Check if it's the first song
 		// if (song === 0) {
@@ -93,6 +95,8 @@ const Featured = ({
 		setStoppedIntentionally(true);
 		pauseAudio();
 		setPlaying(false);
+		setHighPassValue(.01)
+		setLowPassValue(1)
 		// console.log(songs.length)
 		// console.log(songs)
 		// console.log(song)

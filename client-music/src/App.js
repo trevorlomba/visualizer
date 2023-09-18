@@ -80,6 +80,18 @@ const [stoppedIntentionally, setStoppedIntentionally] = useState(false);
 		// console.log(songsList[song])
 		// console.log(songsList[song].songLink)
 
+		// event listener for the space bar that will pause and play the song
+		// document.addEventListener('keydown', function (e) {
+		// 	console.log('space bar pressed')
+		// 	if (e.code === 'Space') {
+		// 		if (isPlaying) {
+		// 			pauseAudio();
+		// 		} else {
+		// 			playAudio();
+		// 		}
+		// 	}
+		// });
+
 		loadAudioFile(songsList[song].songLink).then((audioBuffer) => {
 			const source = audioCtx.createBufferSource();
 			// source.onended = function () {
@@ -155,7 +167,7 @@ const [stoppedIntentionally, setStoppedIntentionally] = useState(false);
 
 
 			highPassEffect.current = new tunaObj.Filter({
-				frequency: 1,
+				frequency: .1,
 				Q: 1,
 				gain: 0,
 				filterType: "highpass",
@@ -163,7 +175,7 @@ const [stoppedIntentionally, setStoppedIntentionally] = useState(false);
 			});
 
 			lowPassEffect.current = new tunaObj.Filter({
-				frequency: lowPassValue * 2400,
+				frequency: lowPassValue * 5000,
 				Q: 2,
 				gain: 0,
 				filterType: "lowpass",
@@ -249,7 +261,7 @@ const [stoppedIntentionally, setStoppedIntentionally] = useState(false);
 	useEffect(() => {
 		if (highPassEffect.current) {
 			// console.log(highPassEffect.current.frequency.value)
-			highPassEffect.current.frequency.value = highPassValue * 2400;
+			highPassEffect.current.frequency.value = highPassValue * 5000;
 			// console.log(highPassEffect.current.frequency.value)
 		}	
 	}, [highPassValue]);
