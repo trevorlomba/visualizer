@@ -7,6 +7,8 @@ import {
 	BsChevronDoubleLeft,
 	BsChevronBarDown,
 	BsChevronBarUp,
+	BsChevronBarRight,
+	BsChevronBarLeft,
 	BsChevronDown,
 	BsChevronUp,
 } from 'react-icons/bs'

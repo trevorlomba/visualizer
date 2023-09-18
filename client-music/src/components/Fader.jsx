@@ -38,18 +38,18 @@ const Fader = ({ songVolume, visibility, setVocalVolume,
 	return (
 		<div className='volume'>
 			<div className={`slider-container ${visibility}`}>
-				<div className={`slider-container ${visibility}`}>
+				<div className={`slider-container ${visibility}`} onDoubleClick={() => setVocalVolume(1.2)}>
 					<label
 						className='slider-label reset'
 					
-						onDoubleClick={() => setVocalVolume(1.2)}
+						
 					>
 						Gain
 					</label>
 					<input
 						type='range'
 						min='0'
-						max='2'
+						max='3'
 						step='.05'
 						value={songVolume}
 						onChange={(e) => setVocalVolume(e.target.value)}
@@ -60,8 +60,8 @@ const Fader = ({ songVolume, visibility, setVocalVolume,
 			</div>
 			{showFilters && (
 				<>
-					<div className={`slider-container ${visibility}`}>
-						<label className='slider-label reset' onDoubleClick={() => setHighPassValue(0)} >Higpass </label>
+					<div className={`slider-container ${visibility}`} onDoubleClick={() => setHighPassValue(0)}>
+						<label className='slider-label reset'  >Higpass </label>
 						<input
 							type='range'
 							min='0'
@@ -71,8 +71,8 @@ const Fader = ({ songVolume, visibility, setVocalVolume,
 							onChange={(e) => setHighPassValue(e.target.value)}
 						/>
 					</div>
-					<div className={`slider-container ${visibility}`}>
-						<label className='slider-label reset' onDoubleClick={() => setLowPassValue(1)} >Lowpass </label>
+					<div className={`slider-container ${visibility}`} onDoubleClick={() => setLowPassValue(1)}>
+						<label className='slider-label reset'  >Lowpass </label>
 						<input
 							type='range'
 							min='0'
