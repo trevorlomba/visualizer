@@ -22,7 +22,7 @@ import merch1 from './assets/merch.png'
 import merch2 from './assets/merch2.png'
 
 // eslint-disable-next-line no-sparse-arrays
-const backgrounds = [backgroundImage4, backgroundImage3,
+const backgrounds = [backgroundImage3, backgroundImage4,
 		// backgroundImage, backgroundImage2
 	]
 
