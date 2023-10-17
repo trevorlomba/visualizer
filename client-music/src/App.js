@@ -117,7 +117,7 @@ const [stoppedIntentionally, setStoppedIntentionally] = useState(false);
 
 			// Create the Lowpass filter:
 			const lowpass = new tunaObj.Filter({
-				frequency: 1550,
+				frequency: 7550,
 				Q: 1,
 				gain: 0,
 				filterType: "lowpass",

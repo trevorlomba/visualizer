@@ -26,6 +26,46 @@ const songs = [
 			logo: logoImage,
 			logo2: logoImage2,
 			// vocalLink: 'https://sndup.net/wsv2/m',
+			songLink: 'https://storage.googleapis.com/music-microsite-visuals/10.6.23%201.wav',
+			name: '10.6.23',
+			// songLink: 'https://sndup.net/9c5h/m',
+		},
+	}, 
+	{
+		data: {
+			logo: logoImage,
+			logo2: logoImage2,
+			// vocalLink: 'https://sndup.net/wsv2/m',
+			songLink: 'https://storage.googleapis.com/music-microsite-visuals/10.5.23%20v3.wav',
+			name: '10.5.23',
+			// songLink: 'https://sndup.net/9c5h/m',
+		},
+	}, 
+	{
+		data: {
+			logo: logoImage,
+			logo2: logoImage2,
+			// vocalLink: 'https://sndup.net/wsv2/m',
+			songLink: 'https://storage.googleapis.com/music-microsite-visuals/10.4.23%201.wav',
+			name: '10.4.23',
+			// songLink: 'https://sndup.net/9c5h/m',
+		},
+	}, 
+	{
+		data: {
+			logo: logoImage,
+			logo2: logoImage2,
+			// vocalLink: 'https://sndup.net/wsv2/m',
+			songLink: 'https://storage.googleapis.com/music-microsite-visuals/10.2.23%201.wav',
+			name: '10.2.23',
+			// songLink: 'https://sndup.net/9c5h/m',
+		},
+	}, 
+	{
+		data: {
+			logo: logoImage,
+			logo2: logoImage2,
+			// vocalLink: 'https://sndup.net/wsv2/m',
 			songLink: 'https://storage.googleapis.com/music-microsite-visuals/9.18.23%20v3.wav',
 			name: '9.18.23',
 			// songLink: 'https://sndup.net/9c5h/m',

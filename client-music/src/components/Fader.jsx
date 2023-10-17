@@ -65,7 +65,7 @@ const Fader = ({ songVolume, visibility, setVocalVolume,
 						<input
 							type='range'
 							min='0'
-							max='1'
+							max='.8'
 							step='.05'
 							value={highPassValue}
 							onChange={(e) => setHighPassValue(e.target.value)}
@@ -75,7 +75,7 @@ const Fader = ({ songVolume, visibility, setVocalVolume,
 						<label className='slider-label reset'  >Lowpass </label>
 						<input
 							type='range'
-							min='0'
+							min='.2'
 							max='1'
 							step='.05'
 							value={lowPassValue}
